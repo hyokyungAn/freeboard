@@ -90,7 +90,7 @@ export default function ProductCard(props: IProductCardUIProps) {
 			onClickPick={onClickPick}
 			onClickMoveToBrandDetail={onClickMoveToBrandDetail}
 			el={props.el}
-			loadFunc={loadFunc}
+			// loadFunc={loadFunc}
 		/>
 	);
 }
