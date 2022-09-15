@@ -1,5 +1,6 @@
 import { useMutation, useQuery } from "@apollo/client";
 import { Modal } from "antd";
+import { Content } from "antd/lib/layout/layout";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { useRecoilState } from "recoil";
@@ -87,15 +88,20 @@ export default function BrandDetail(props: IBrandDetailProps) {
 	};
 
 	const onClickDelete = async () => {
-		try {
-			await deleteUseditem({
-				variables: { useditemId: id },
-			});
-			Modal.success({ content: "게시물이 삭제되었습니다." });
-			router.push("/brand/main");
-		} catch (error: any) {
-			Modal.error({ content: error.message });
-		}
+		Modal.confirm({
+			content: "정말 삭제하시겠습니까?",
+			async onOk() {
+				try {
+					await deleteUseditem({
+						variables: { useditemId: id },
+					});
+					Modal.success({ content: "게시물이 삭제되었습니다." });
+					router.push("/brand/main");
+				} catch (error: any) {
+					Modal.error({ content: error.message });
+				}
+			},
+		});
 	};
 
 	const onClickShoppingBag = () => {

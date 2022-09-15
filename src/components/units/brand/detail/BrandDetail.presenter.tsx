@@ -164,7 +164,7 @@ export default function BrandDetailUI(props: IBrandDetailUIProps) {
 					</S.Notice>
 					<S.Notice>
 						• A/S 기준이나 가능여부는 브랜드와 상품에 따라 다르므로 관련 문의는
-						에이블리 고객센터를 통해 부탁드립니다.
+						딩코 고객센터를 통해 부탁드립니다.
 					</S.Notice>
 					<S.Notice>
 						• 상품불량에 의한 반품,교환, A/S, 환불, 품질보증 및 피해보상 등에
