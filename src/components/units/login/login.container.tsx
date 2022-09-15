@@ -8,7 +8,6 @@ import * as yup from "yup";
 import { FETCH_USER_LOGGED_IN, LOGIN_USER } from "./login.queries";
 import LoginUI from "./login.presenter";
 import { Modal } from "antd";
-import { Content } from "antd/lib/layout/layout";
 
 const schema = yup.object({
 	email: yup
@@ -62,7 +61,7 @@ export default function Login() {
 			localStorage.setItem("userInfo", JSON.stringify(userInfo));
 			router.push("/");
 		} catch (error: any) {
-			Modal.error(error.message);
+			Modal.error({ content: error.message });
 		}
 	};
 

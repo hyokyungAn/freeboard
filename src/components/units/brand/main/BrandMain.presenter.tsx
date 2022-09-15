@@ -5,6 +5,7 @@ import InfiniteScroll from "react-infinite-scroller";
 import Searchbar from "../../../commons/searchbar/Searchbar.container";
 import MediumButton from "../../../commons/buttons/medium";
 import ProductCard from "../../main/product-card/ProductCard.container";
+import { OmitProps } from "antd/lib/transfer/ListBody";
 
 export default function BrandMainUI(props: IBrandMainUIProps) {
 	return (
@@ -13,7 +14,12 @@ export default function BrandMainUI(props: IBrandMainUIProps) {
 				<S.Text>BEST</S.Text>
 				<S.BestProductWrapper>
 					{props.bestData?.fetchUseditemsOfTheBest.map((el: any) => (
-						<ProductCard key={uuidv4()} data={props.data} el={el} />
+						<ProductCard
+							key={uuidv4()}
+							el={el}
+							pickList={props.pickList}
+							fetchMore={props.fetchMore}
+						/>
 					))}
 				</S.BestProductWrapper>
 			</S.BestWrapper>
@@ -42,7 +48,7 @@ export default function BrandMainUI(props: IBrandMainUIProps) {
 			>
 				<S.InnerWrapper>
 					{props.data?.fetchUseditems.map((el: any) => (
-						<ProductCard key={uuidv4()} data={props.data} el={el} />
+						<ProductCard key={uuidv4()} el={el} pickList={props.pickList} />
 					))}
 				</S.InnerWrapper>
 			</InfiniteScroll>

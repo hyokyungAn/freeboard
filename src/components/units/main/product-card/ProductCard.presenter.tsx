@@ -4,12 +4,7 @@ import { IProductCardUIProps } from "./ProductCard.types";
 export default function ProductCardUI(props: IProductCardUIProps) {
 	return (
 		<S.PickContainer>
-			<S.PickWrapper
-				id={props.el?._id}
-				onClick={props.onClickPick}
-				// loadMore={props.loadFunc}
-				// hasMore={true}
-			>
+			<S.PickWrapper id={props.el?._id} onClick={props.onClickPick}>
 				{props.isActive ? (
 					<S.Pick src="/images/redHeart.png" />
 				) : (

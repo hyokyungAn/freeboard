@@ -37,3 +37,12 @@ export const FETCH_USED_ITEMS_OF_THE_BEST = gql`
 		}
 	}
 `;
+
+export const FETCH_USED_ITEMS_I_PICKED = gql`
+	query ($search: String, $page: Int) {
+		fetchUseditemsIPicked(search: $search, page: $page) {
+			_id
+			pickedCount
+		}
+	}
+`;
