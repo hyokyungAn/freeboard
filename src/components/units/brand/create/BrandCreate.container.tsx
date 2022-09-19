@@ -36,7 +36,7 @@ export default function BrandCreate(props: IBrandCreateProps) {
 	const [isOpen, setIsOpen] = useState(false);
 	const [fileUrls, setFileUrls] = useState<string[]>([]);
 	const [tagItem, setTagItem] = useState("");
-	const [tagList, setTagList] = useState([]);
+	const [tagList, setTagList] = useState<string[]>([]);
 
 	const { register, handleSubmit, formState, setValue, trigger, getValues } =
 		useForm<IForm>({
@@ -231,22 +231,22 @@ export default function BrandCreate(props: IBrandCreateProps) {
 			register={register}
 			handleSubmit={handleSubmit}
 			formState={formState}
-			onClickCancel={onClickCancel}
-			onClickSubmit={onClickSubmit}
-			onClickUpdate={onClickUpdate}
-			onClickAddressSearch={onClickAddressSearch}
 			isOpen={isOpen}
-			onChangeContents={onChangeContents}
-			onChangeRemarks={onChangeRemarks}
-			onCompleteAddressSearch={onCompleteAddressSearch}
 			isEdit={props.isEdit}
 			fileUrls={fileUrls}
-			onChangeFileUrls={onChangeFileUrls}
 			tagItem={tagItem}
 			setTagItem={setTagItem}
 			tagList={tagList}
 			setTagList={setTagList}
 			getValues={getValues}
+			onClickCancel={onClickCancel}
+			onClickSubmit={onClickSubmit}
+			onClickUpdate={onClickUpdate}
+			onClickAddressSearch={onClickAddressSearch}
+			onChangeContents={onChangeContents}
+			onChangeRemarks={onChangeRemarks}
+			onChangeFileUrls={onChangeFileUrls}
+			onCompleteAddressSearch={onCompleteAddressSearch}
 			onToggleModal={onToggleModal}
 		/>
 	);

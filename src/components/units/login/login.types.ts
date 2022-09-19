@@ -1,6 +1,6 @@
 import { FieldValues, UseFormHandleSubmit } from "react-hook-form";
 
-export interface ILoginProps {
+export interface ILoginUIProps {
 	handleSubmit: UseFormHandleSubmit<FieldValues>;
 	register: any;
 	formState: any;

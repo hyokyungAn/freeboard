@@ -48,6 +48,7 @@ interface IData {
 
 interface IProps {
 	getValues: UseFormGetValues<IData>;
+	defaultValue: any;
 	onChangeContent: (value: string) => void;
 }
 

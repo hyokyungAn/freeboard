@@ -8,7 +8,7 @@ import {
 	FETCH_USED_ITEMS_OF_THE_BEST,
 } from "./BrandMain.queries";
 
-export default function BrandMain(props: IBrandMainProps) {
+export default function BrandMain() {
 	const router = useRouter();
 	const [keyword, setKeyword] = useState("");
 	const [check, setCheck] = useState(true);
@@ -101,7 +101,7 @@ export default function BrandMain(props: IBrandMainProps) {
 
 	useEffect(() => {
 		async function loop() {
-			await loadFuncPick();
+			loadFuncPick();
 		}
 
 		if (!pickListLoading) {

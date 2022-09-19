@@ -5,7 +5,6 @@ import InfiniteScroll from "react-infinite-scroller";
 import Searchbar from "../../../commons/searchbar/Searchbar.container";
 import MediumButton from "../../../commons/buttons/medium";
 import ProductCard from "../../main/product-card/ProductCard.container";
-import { OmitProps } from "antd/lib/transfer/ListBody";
 
 export default function BrandMainUI(props: IBrandMainUIProps) {
 	return (

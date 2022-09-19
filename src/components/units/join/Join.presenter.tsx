@@ -1,9 +1,9 @@
 import SmallButton from "../../commons/buttons/small";
 import GrayInput from "../../commons/inputs/gray-input";
 import * as S from "./Join.styles";
-import { IJoinProps } from "./Join.types";
+import { IJoinUIProps } from "./Join.types";
 
-export default function JoinUI(props: IJoinProps) {
+export default function JoinUI(props: IJoinUIProps) {
 	return (
 		<S.Wrapper onSubmit={props.handleSubmit(props.onClickJoin)}>
 			<S.Title>JOIN MEMBER</S.Title>

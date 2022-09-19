@@ -46,7 +46,7 @@ export default function BrandRecommentWrite(props: IBrandRecommentWriteProps) {
 		} catch (error: any) {
 			Modal.error({ content: error.message });
 		}
-		props.setIsAnswer((prev: any) => !prev);
+		if (props.setIsAnswer) props.setIsAnswer((prev: any) => !prev);
 	};
 
 	const onClickAnswerUpdate = async (data: any) => {
@@ -65,7 +65,7 @@ export default function BrandRecommentWrite(props: IBrandRecommentWriteProps) {
 				},
 			});
 			props.refetch();
-			props.setIsAnswerEdit((prev) => !prev);
+			if (props.setIsAnswerEdit) props.setIsAnswerEdit((prev: any) => !prev);
 			Modal.success({ content: "답글이 수정 되었습니다!" });
 		} catch (error: any) {
 			Modal.error({ content: error.message });
@@ -73,11 +73,11 @@ export default function BrandRecommentWrite(props: IBrandRecommentWriteProps) {
 	};
 
 	const onClickCancel = () => {
-		props.setIsAnswer(false);
+		if (props.setIsAnswer) props.setIsAnswer(false);
 	};
 
 	const onClickBackButtonEdit = () => {
-		props.setIsAnswerEdit(false);
+		if (props.setIsAnswerEdit) props.setIsAnswerEdit(false);
 	};
 
 	return (

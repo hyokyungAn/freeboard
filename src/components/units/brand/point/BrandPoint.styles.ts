@@ -1,5 +1,9 @@
 import styled from "@emotion/styled";
 
+interface IProps {
+	selected: number;
+}
+
 export const Wrapper = styled.div`
 	width: 100%;
 	height: 100%;
@@ -41,7 +45,8 @@ export const ButtonWrapper = styled.div``;
 
 export const Button = styled.div`
 	border-radius: 10px;
-	background-color: ${(props) => (props.selected !== 0 ? "black" : "#BDBDBD")};
+	background-color: ${(props: IProps) =>
+		props.selected !== 0 ? "black" : "#BDBDBD"};
 	color: white;
 	width: 384px;
 	height: 51px;

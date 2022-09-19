@@ -1,7 +1,4 @@
 export interface IBrandDetailProps {
-	// onClickMoveToMarketList: () => void;
-	// onClickMoveToMarketEdit: () => void;
-	// onClickDelete: () => void;
 	el?: any;
 	pickList?: any;
 }
@@ -9,9 +6,12 @@ export interface IBrandDetailProps {
 export interface IBrandDetailUIProps {
 	data?: any;
 	el: any;
-	index: any;
 	isActive: boolean;
-	onClickPick: () => void;
-	onClickShoppingBag: () => void;
 	onClickBuy: () => void;
+	onclickEdit: () => void;
+	onClickDelete: () => void;
+	onClickShoppingBag: () => void;
+	onClickPick: () => void;
+	onClickSubImage: (event: any) => void;
+	mainImg: string;
 }

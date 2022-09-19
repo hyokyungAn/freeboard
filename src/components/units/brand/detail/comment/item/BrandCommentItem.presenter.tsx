@@ -1,10 +1,8 @@
-import { useState } from "react";
 import BrandRecommentWrite from "../recomment/write/BrandRecommentWrite.container";
 import BrandCommentWrite from "../write/BrandCommentWrite.container";
 import * as S from "../item/BrandCommentItem.styles";
 import { IBrandCommentItemUIProps } from "./BrandCommentItem.types";
 import { getDate } from "../../../../../../commons/libraries/utils";
-import { Modal } from "antd";
 import BrandRecommentList from "../recomment/list/BrandRecommentList.container";
 
 export default function BrandCommentItemUI(props: IBrandCommentItemUIProps) {

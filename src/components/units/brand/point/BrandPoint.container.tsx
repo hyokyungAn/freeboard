@@ -2,7 +2,6 @@ import { useMutation } from "@apollo/client";
 import { Modal } from "antd";
 import Head from "next/head";
 import { useState } from "react";
-import { useAuth } from "../../../commons/hooks/useAuth";
 import BrandPointUI from "./BrandPoint.presenter";
 import { CREATE_POINT_TRANSACTION_OF_LOADING } from "./BrandPoint.queries";
 import { IBrandPointProps } from "./BrandPoint.types";
@@ -18,7 +17,7 @@ export default function BrandPoint(props: IBrandPointProps) {
 		CREATE_POINT_TRANSACTION_OF_LOADING
 	);
 
-	const onChangeAmount = (value: any) => {
+	const onChangeAmount = (value: string) => {
 		setSelected(Number(value));
 	};
 

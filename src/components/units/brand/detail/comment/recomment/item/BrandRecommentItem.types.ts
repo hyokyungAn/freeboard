@@ -1,21 +1,35 @@
 import { ApolloQueryResult, OperationVariables } from "@apollo/client";
 import { Dispatch, SetStateAction } from "react";
 
+export interface IData {
+	_id: string;
+	contents: string;
+	createdAt: Date;
+	user: {
+		email: string;
+		_id: string;
+		name: string;
+	};
+}
+
 export interface IBrandRecommentItemProps {
 	refetch(
-		variables?: Partial<OperationVariables> | undefined
-	): Promise<ApolloQueryResult<any>>;
-	onClickDelete: () => void;
-	el?: any;
-	recommentData: any;
+		variables?: Partial<{ useditemQuestionId: string }> | undefined
+	): Promise<ApolloQueryResult<Array<IData>>>;
+	onClickDelete: (event: any) => void;
+	el?: IData;
+	recommentData: {
+		fetchUseditemQuestionAnswers: Array<IData>;
+	};
 }
 export interface IBrandRecommentItemUIProps {
+	el?: any;
+	data?: any;
 	refetch(
 		variables?: Partial<OperationVariables> | undefined
 	): Promise<ApolloQueryResult<any>>;
 	onClickDelete: () => void;
-	onClickEdit: (event: any) => void;
-	el?: any;
+	onClickUpdate: (event: any) => void;
 	isAnswerEdit: boolean;
 	answerEditId: string;
 	setIsAnswerEdit: Dispatch<SetStateAction<boolean>>;

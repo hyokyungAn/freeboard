@@ -1,8 +1,15 @@
+import { ChangeEvent } from "react";
+
 export interface IBrandPointProps {
-	isCharge: any;
+	isCharge: boolean;
+	handleCancel: any;
+	refetch: any;
 	onClickCharge: () => void;
 }
 
 export interface IBrandPointUIProps {
-	onClickCharge: () => void;
+	selected: number;
+	requestPay: any;
+	handleCancel: any;
+	onChangeAmount: (event: string) => void;
 }

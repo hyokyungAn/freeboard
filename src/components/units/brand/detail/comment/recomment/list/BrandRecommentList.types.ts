@@ -1,11 +1,28 @@
 import { ApolloQueryResult, OperationVariables } from "@apollo/client";
 
-export interface IBrandRecommentListProps {}
+export interface IData {
+	_id: string;
+	contents: string;
+	createdAt: Date;
+	user: {
+		email: string;
+		_id: string;
+		name: string;
+	};
+}
+
+export interface IBrandRecommentListProps {
+	el: {
+		_id: string;
+	};
+}
 
 export interface IBrandRecommentListUIProps {
-	recommentData: string;
+	recommentData: {
+		fetchUseditemQuestionAnswers: Array<IData>;
+	};
 	refetch(
-		variables?: Partial<OperationVariables> | undefined
-	): Promise<ApolloQueryResult<any>>;
-	onClickDelete: () => void;
+		variables?: Partial<{ useditemQuestionId: string }> | undefined
+	): Promise<ApolloQueryResult<Array<IData>>>;
+	onClickDelete: (event: any) => void;
 }

@@ -20,20 +20,12 @@ export default function BrandRecommentList(props: IBrandRecommentListProps) {
 		DELETE_USED_QUESTION_ANSWER
 	);
 
-	const onClickDelete = async (event) => {
+	const onClickDelete = async (event: any) => {
 		try {
 			await deleteUseditemQuestionAnswer({
 				variables: {
 					useditemQuestionAnswerId: event.target.id,
 				},
-				// refetchQueries: [
-				// 	{
-				// 		query: FETCH_USED_ITEM_QUESTION_ANSWERS,
-				// 		variables: {
-				// 			useditemId: recommentData?.fetchUseditemQuestionAnswers._id,
-				// 		},
-				// 	},
-				// ],
 			});
 			refetch();
 			Modal.success({ content: "댓글이 삭제 되었습니다!" });
@@ -43,12 +35,10 @@ export default function BrandRecommentList(props: IBrandRecommentListProps) {
 	};
 
 	return (
-		<div>
-			<BrandRecommentListUI
-				recommentData={recommentData}
-				onClickDelete={onClickDelete}
-				refetch={refetch}
-			/>
-		</div>
+		<BrandRecommentListUI
+			recommentData={recommentData}
+			onClickDelete={onClickDelete}
+			refetch={refetch}
+		/>
 	);
 }

@@ -1,16 +1,13 @@
-import { useMutation, useQuery } from "@apollo/client";
+import { useMutation } from "@apollo/client";
 import { useRouter } from "next/router";
 import React, { MouseEvent, useEffect, useState } from "react";
 import { useRecoilState } from "recoil";
 import { TodayState } from "../../../../commons/store";
 import ProductCardUI from "./ProductCard.presenter";
-import {
-	FETCH_USED_ITEMS_I_PICKED,
-	TOGGLE_USED_ITEM_PICK,
-} from "./ProductCard.queries";
-import { IProductCardUIProps } from "./ProductCard.types";
+import { TOGGLE_USED_ITEM_PICK } from "./ProductCard.queries";
+import { IProductCardProps } from "./ProductCard.types";
 
-export default function ProductCard(props: IProductCardUIProps) {
+export default function ProductCard(props: IProductCardProps) {
 	const router = useRouter();
 	const [isActive, setIsActive] = useState<boolean>(false);
 	const [today, setToday] = useRecoilState(TodayState);

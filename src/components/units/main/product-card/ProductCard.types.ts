@@ -2,7 +2,9 @@ import { MouseEvent } from "react";
 
 export interface IProductCardProps {
 	el: any;
-	data: any;
+	data?: any;
+	pickList: any;
+	fetchMore?: any;
 }
 
 export interface IProductCardUIProps {

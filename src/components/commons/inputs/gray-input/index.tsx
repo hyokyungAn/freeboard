@@ -2,11 +2,13 @@ import styled from "@emotion/styled";
 import { UseFormRegisterReturn } from "react-hook-form";
 
 interface IGrayInputProps {
-	type: string;
-	placeholder: string;
-	register: UseFormRegisterReturn<"name" | "remarks" | "price">;
-	defaultValue: string;
-	readOnly: boolean;
+	type?: string;
+	placeholder?: string;
+	register: UseFormRegisterReturn<
+		"name" | "remarks" | "price" | "address" | "addressDetail"
+	>;
+	defaultValue?: string;
+	readOnly?: boolean;
 }
 
 export default function GrayInput(props: IGrayInputProps) {

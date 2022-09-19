@@ -9,7 +9,6 @@ export default function BrandRecommentWriteUI(
 	return (
 		<S.Wrapper>
 			<S.WriteContent
-				type="text"
 				onChange={props.onChangeComment}
 				placeholder="내용을 입력해주세요."
 				defaultValue={props.el?.contents}
@@ -32,7 +31,7 @@ export default function BrandRecommentWriteUI(
 						/>
 					)}
 					<MediumButton
-						// type="button"
+						type="button"
 						isActive={true}
 						title={props.isAnswerEdit ? "수정하기" : "등록하기"}
 						onClick={

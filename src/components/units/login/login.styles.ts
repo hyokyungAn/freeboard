@@ -1,5 +1,9 @@
 import styled from "@emotion/styled";
 
+interface IProps {
+	isActive: boolean;
+}
+
 export const Wrapper = styled.form`
 	width: 100%;
 	display: flex;
@@ -37,11 +41,6 @@ export const InputWrapper = styled.div`
 	display: flex;
 	align-items: center;
 	padding: 15px;
-	/* margin-bottom: 30px; */
-	/* position: relative; */
-	/* :last-of-type {
-		margin-bottom: 0;
-	} */
 `;
 
 export const Error = styled.div`
@@ -64,6 +63,6 @@ export const LoginButtonWrapper = styled.div`
 export const LoginButton = styled.button`
 	width: 100%;
 	height: 100%;
-	background-color: ${(props) => (props.isActive ? "black" : "White")};
-	color: ${(props) => (props.isActive ? "White" : "black")};
+	background-color: ${(props: IProps) => (props.isActive ? "black" : "White")};
+	color: ${(props: IProps) => (props.isActive ? "White" : "black")};
 `;

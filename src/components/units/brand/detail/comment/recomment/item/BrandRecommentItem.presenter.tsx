@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { getDate } from "../../../../../../../commons/libraries/utils";
 import * as S from "./BrandRecommentItem.styles";
 import BrandRecommentWrite from "../write/BrandRecommentWrite.container";

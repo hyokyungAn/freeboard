@@ -1,5 +1,9 @@
-import { ChangeEvent, FormEventHandler } from "react";
-import { UseFormRegister } from "react-hook-form";
+import { Dispatch, SetStateAction } from "react";
+import {
+	FormState,
+	UseFormHandleSubmit,
+	UseFormRegister,
+} from "react-hook-form";
 
 export interface IBrandCreateProps {
 	isEdit: boolean;
@@ -36,34 +40,26 @@ export interface IForm {
 }
 
 export interface IBrandCreateUIProps {
-	register: UseFormRegister<IForm>;
-	isActive: boolean;
-	formState: string;
-	writerError: string;
-	passwordError: string;
-	titleError: string;
-	contentsError: string;
-	onChangeFileUrls: (fileUrls: string, index: number) => void;
-	onChangeWriter: (event: ChangeEvent<HTMLInputElement>) => void;
-	onChangePassword: (event: ChangeEvent<HTMLInputElement>) => void;
-	onChangeTitle: (event: ChangeEvent<HTMLInputElement>) => void;
-	onChangeContents: (event: ChangeEvent<HTMLTextAreaElement>) => void;
-	onChangeYoutubeUrl: (event: ChangeEvent<HTMLInputElement>) => void;
-	onChangeAddressDetail: (event: ChangeEvent<HTMLInputElement>) => void;
-	onClickAddressSearch: () => void;
-	onCompleteAddressSearch: (data: any) => void;
-	onClickSubmit: () => void;
-	onClickUpdate: () => void;
-	onClickCancel: () => void;
-	isEdit: boolean;
 	data?: any;
+	register: UseFormRegister<IForm>;
+	handleSubmit: UseFormHandleSubmit<IForm>;
+	formState: FormState<IForm>;
+	isEdit: boolean;
 	isOpen: boolean;
-	zipcode: string;
-	address: string;
-	addressDetail: string;
 	fileUrls: string[];
 	tagItem: string;
-	setTagItem: string;
-	tagList: string;
-	setTagList: string;
+	setTagItem: Dispatch<SetStateAction<string>>;
+	tagList: string[];
+	setTagList: Dispatch<SetStateAction<string[]>>;
+	getValues: any;
+	titleError?: any;
+	onClickSubmit: (data: IForm) => void;
+	onClickUpdate: (data: IForm) => void;
+	onClickCancel: () => void;
+	onClickAddressSearch: () => void;
+	onChangeFileUrls: (fileUrls: string, index: number) => void;
+	onChangeContents: (contents: string) => void;
+	onChangeRemarks: (value: string) => void;
+	onCompleteAddressSearch: (data: any) => void;
+	onToggleModal: () => void;
 }

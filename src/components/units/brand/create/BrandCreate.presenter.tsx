@@ -10,7 +10,7 @@ import GrayInput from "../../../commons/inputs/gray-input";
 import ReactQuillContainer from "../../../commons/quill";
 import DaumPostcode from "react-daum-postcode";
 
-export default function BrandCreateUI(props: any) {
+export default function BrandCreateUI(props: IBrandCreateUIProps) {
 	return (
 		<>
 			{props.isOpen && (
@@ -24,7 +24,7 @@ export default function BrandCreateUI(props: any) {
 					></DaumPostcode>
 				</Modal>
 			)}
-			<S.Wrapper onSubmit={"return false"}>
+			<S.Wrapper>
 				<S.Title>{props.isEdit ? "상품 수정" : "상품 등록"}</S.Title>
 				<S.BoldLine />
 				<S.InputWrapper>
@@ -44,9 +44,7 @@ export default function BrandCreateUI(props: any) {
 					<S.Label>상품요약</S.Label>
 					<S.InputErrorWrapper>
 						<S.RemarksEditor
-							type="text"
 							placeholder="상품요약을 작성해주세요."
-							// {...props.register("remarks")}
 							onChange={props.onChangeRemarks}
 							defaultValue={props.data?.fetchUseditem.remarks}
 						/>
@@ -88,7 +86,6 @@ export default function BrandCreateUI(props: any) {
 							tagList={props.tagList}
 							setTagList={props.setTagList}
 							data={props.data}
-							register={props.register("tags")}
 							defaultValue={props.data?.fetchUseditem.tags}
 						/>
 						<S.Error>{props.formState.errors.tags?.message}</S.Error>

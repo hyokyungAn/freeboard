@@ -7,6 +7,7 @@ interface ITagProps {
 	setTagItem: any;
 	data: any;
 	tagItem: any;
+	defaultValue: any;
 }
 
 export default function Tag(props: ITagProps) {

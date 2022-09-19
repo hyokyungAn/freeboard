@@ -1,6 +1,5 @@
 import { useMutation, useQuery } from "@apollo/client";
 import { Modal } from "antd";
-import { Content } from "antd/lib/layout/layout";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { useRecoilState } from "recoil";
@@ -41,7 +40,7 @@ export default function BrandDetail(props: IBrandDetailProps) {
 
 	const { data: pickList } = useQuery(FETCH_USED_ITEMS_I_PICKED, {
 		variables: {
-			page: 0,
+			page: 1,
 			search: "",
 		},
 	});

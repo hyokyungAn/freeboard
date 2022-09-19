@@ -2,14 +2,14 @@ import DOMPurify from "dompurify";
 import React from "react";
 import BrandRecommentItem from "../item/BrandRecommentItem.container";
 import * as S from "./BrandRecommentList.styles";
-import { IBrandRecommentListUIProps } from "./BrandRecommentList.types";
+import { IBrandRecommentListUIProps, IData } from "./BrandRecommentList.types";
 
 export default function BrandRecommentListUI(
 	props: IBrandRecommentListUIProps
 ) {
 	return (
 		<S.Wrapper>
-			{props.recommentData?.fetchUseditemQuestionAnswers.map((el: any) => (
+			{props.recommentData?.fetchUseditemQuestionAnswers.map((el: IData) => (
 				<S.InnerWrapper key={el._id}>
 					{typeof window !== "undefined" ? (
 						<BrandRecommentItem

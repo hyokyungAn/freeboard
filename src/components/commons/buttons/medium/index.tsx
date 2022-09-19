@@ -1,13 +1,14 @@
 import styled from "@emotion/styled";
 
 interface IMediumButtonProps {
-	onClick: () => void;
+	onClick: (data: any) => void;
 	title: string;
 	isActive?: boolean;
+	type: string;
 }
 
 interface IProps {
-	isActive: boolean;
+	isActive?: boolean;
 }
 
 const Button = styled.button`

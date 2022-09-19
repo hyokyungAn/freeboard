@@ -1,8 +1,8 @@
 import GrayInput from "../../commons/inputs/gray-input";
 import * as S from "./login.styles";
-import { ILoginProps } from "./login.types";
+import { ILoginUIProps } from "./login.types";
 
-export default function LoginUI(props: ILoginProps) {
+export default function LoginUI(props: ILoginUIProps) {
 	return (
 		<S.Wrapper onSubmit={props.handleSubmit(props.onClickLogin)}>
 			<S.Title>LOGIN</S.Title>
