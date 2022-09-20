@@ -58,7 +58,6 @@ export default function BrandCreateUI(props: IBrandCreateUIProps) {
 						<ReactQuillContainer
 							getValues={props.getValues}
 							onChangeContent={props.onChangeContents}
-							defaultValue={props.data?.fetchUseditem.contents}
 						/>
 						<S.Error>{props.formState.errors.contents?.message}</S.Error>
 					</S.InputErrorWrapper>

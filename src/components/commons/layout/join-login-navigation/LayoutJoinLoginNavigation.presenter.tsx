@@ -1,15 +1,19 @@
 import { Fragment } from "react";
 import * as S from "./LayoutJoinLoginNavigation.styles";
 import { ILayoutProps } from "./LayoutJoinLoginNavigation.types";
+import { v4 as uuidv4 } from "uuid";
 
 const NAVIGATION_MENUS1 = [
 	{ name: "BRAND", page: "/brand/main" },
-	{ name: "CATEGORY" },
-	{ name: "LIFE" },
-	{ name: "BEAUTY" },
+	{ name: "CATEGORY", page: "" },
+	{ name: "LIFE", page: "" },
+	{ name: "BEAUTY", page: "" },
 ];
 
-const NAVIGATION_MENUS2 = [{ name: "#STYLE" }, { name: "EVENT" }];
+const NAVIGATION_MENUS2 = [
+	{ name: "#STYLE", page: "" },
+	{ name: "EVENT", page: "" },
+];
 
 export default function LayoutJoinLoginNavigationUI(props: ILayoutProps) {
 	return (
@@ -20,7 +24,7 @@ export default function LayoutJoinLoginNavigationUI(props: ILayoutProps) {
 			/>
 			<S.Wrapper>
 				{NAVIGATION_MENUS1.map((el) => (
-					<Fragment key={el.page}>
+					<Fragment key={uuidv4()}>
 						<S.MenuItem id={el.page} onClick={props.onClickMenu}>
 							{el.name}
 						</S.MenuItem>
@@ -30,7 +34,7 @@ export default function LayoutJoinLoginNavigationUI(props: ILayoutProps) {
 					<S.MenuDivide>|</S.MenuDivide>
 				</Fragment>
 				{NAVIGATION_MENUS2.map((el) => (
-					<Fragment key={el.page}>
+					<Fragment key={uuidv4()}>
 						<S.MenuItem id={el.page} onClick={props.onClickMenu}>
 							{el.name}
 						</S.MenuItem>

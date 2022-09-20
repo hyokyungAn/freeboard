@@ -5,13 +5,17 @@ interface IButtonProps {
 	title: any;
 }
 
+interface IProps {
+	isActive?: boolean;
+}
+
 export default function SmallButton(props: IButtonProps) {
 	return <Button isActive={props.isActive}>{props.title}</Button>;
 }
 
 const Button = styled.button`
-	background-color: ${(props) => (props.isActive ? "black" : "White")};
-	color: ${(props) => (props.isActive ? "White" : "black")};
+	background-color: ${(props: IProps) => (props.isActive ? "black" : "White")};
+	color: ${(props: IProps) => (props.isActive ? "White" : "black")};
 	display: flex;
 	justify-content: center;
 	align-items: center;

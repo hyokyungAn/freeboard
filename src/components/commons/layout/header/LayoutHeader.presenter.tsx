@@ -1,6 +1,5 @@
-import { Badge, Modal } from "antd";
+import { Badge } from "antd";
 import BrandPoint from "../../../units/brand/point/BrandPoint.container";
-import BrandPointUI from "../../../units/brand/point/BrandPoint.presenter";
 import * as S from "./LayoutHeader.styles";
 import { ILayoutHeaderUIProps } from "./LayoutHeader.types";
 
@@ -22,9 +21,7 @@ export default function LayoutHeaderUI(props: ILayoutHeaderUIProps) {
 						""
 					)}
 					{props.data?.fetchUserLoggedIn ? (
-						<S.InnerButton type="primary" onClick={props.pointCharge}>
-							충전
-						</S.InnerButton>
+						<S.InnerButton onClick={props.pointCharge}>충전</S.InnerButton>
 					) : (
 						<S.InnerButton onClick={props.onClickMoveToLogin}>
 							로그인

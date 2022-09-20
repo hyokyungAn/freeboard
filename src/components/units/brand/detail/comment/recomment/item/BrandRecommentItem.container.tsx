@@ -15,7 +15,7 @@ export default function BrandRecommentItem(props: IBrandRecommentItemProps) {
 		<BrandRecommentItemUI
 			refetch={props.refetch}
 			onClickDelete={props.onClickDelete}
-			key={props.el._id}
+			key={props.el?._id}
 			el={props.el}
 			onClickUpdate={onClickUpdate}
 			isAnswerEdit={isAnswerEdit}

@@ -2,8 +2,8 @@ import { Dispatch, SetStateAction } from "react";
 
 export interface IBrandCommentItemProps {
 	el: any;
-	onClickDelete: () => void;
-	onClickRecomment: (event: any) => void;
+	onClickDelete: (event: any) => void;
+	onClickRecomment?: (event: any) => void;
 }
 
 export interface IBrandCommentItemUIProps {
@@ -17,6 +17,6 @@ export interface IBrandCommentItemUIProps {
 	setEditId: Dispatch<SetStateAction<string>>;
 	setIsAnswer: Dispatch<SetStateAction<boolean>>;
 	onClickUpdate: (event: any) => void;
-	onClickDelete: () => void;
+	onClickDelete: (event: any) => void;
 	onClickRecomment: (event: any) => void;
 }

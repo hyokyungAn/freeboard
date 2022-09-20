@@ -1,10 +1,10 @@
 export interface IBrandCommentListProps {
 	data?: any;
-	onClickDelete: () => void;
+	onClickDelete?: () => void;
 }
 
 export interface IBrandCommentListUIProps {
 	data?: any;
 	loadFunc: any;
-	onClickDelete: () => void;
+	onClickDelete: (event: any) => void;
 }

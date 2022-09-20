@@ -2,10 +2,8 @@ import { ApolloQueryResult, OperationVariables } from "@apollo/client";
 import { Dispatch, SetStateAction } from "react";
 
 export interface IBrandRecommentWriteProps {
-	el: any;
-	refetch(
-		variables?: Partial<OperationVariables> | undefined
-	): Promise<ApolloQueryResult<any>>;
+	el?: any;
+	refetch?: any;
 	setIsAnswer?: Dispatch<SetStateAction<boolean>>;
 	setIsAnswerEdit?: Dispatch<SetStateAction<boolean>>;
 	isAnswer?: boolean;

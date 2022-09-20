@@ -1,4 +1,4 @@
-import { useMutation, useQuery } from "@apollo/client";
+import { useMutation } from "@apollo/client";
 import {
 	CREATE_USED_ITEM_QUESTION,
 	FETCH_USED_ITEM_QUESTIONS,
@@ -11,12 +11,11 @@ import BrandCommentWriteUI from "./BrandCommentWrite.presenter";
 import { ChangeEvent, useRef, useState } from "react";
 
 export default function BrandCommentWrite(props: IBrandCommentWriteProps) {
-	const { data } = useQuery(FETCH_USED_ITEM_QUESTIONS);
 	const [contents, setContents] = useState("");
 	const router = useRouter();
 	const [createUseditemQuestion] = useMutation(CREATE_USED_ITEM_QUESTION);
 	const [updateUseditemQuestion] = useMutation(UPDATE_USED_ITEM_QUESTION);
-	const formRef = useRef();
+	const formRef = useRef<HTMLInputElement>(null);
 
 	const onChangeComment = (event: ChangeEvent<HTMLTextAreaElement>) => {
 		setContents(event.target.value);
@@ -39,7 +38,7 @@ export default function BrandCommentWrite(props: IBrandCommentWriteProps) {
 				],
 			});
 			Modal.success({ content: "댓글이 등록되었습니다!" });
-			formRef.current.value = "";
+			if (formRef.current) formRef.current.value = "";
 			// formRef.current.reset()
 		} catch (error: any) {
 			Modal.error({ content: error.message });

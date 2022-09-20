@@ -8,7 +8,6 @@ export default function BrandCommentWriteUI(props: IBrandCommentWriteUIProps) {
 			<S.WriteContent
 				ref={props.formRef}
 				maxLength={100}
-				type="text"
 				onChange={props.onChangeComment}
 				placeholder="내용을 입력해 주세요.(최대 100자)"
 				defaultValue={props.el?.contents}

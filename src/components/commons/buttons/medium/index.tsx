@@ -4,7 +4,6 @@ interface IMediumButtonProps {
 	onClick: (data: any) => void;
 	title: string;
 	isActive?: boolean;
-	type: string;
 }
 
 interface IProps {

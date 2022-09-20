@@ -18,11 +18,11 @@ export default function BrandRecommentListUI(
 							onClickDelete={props.onClickDelete}
 							el={el}
 							recommentData={props.recommentData}
-							dangerouslySetInnerHTML={{
-								__html: DOMPurify.sanitize(
-									props.recommentData?.fetchUseditemQuestionAnswers.contents
-								),
-							}}
+							// dangerouslySetInnerHTML={{
+							// 	__html: DOMPurify.sanitize(
+							// 		props.recommentData?.fetchUseditemQuestionAnswers.contents
+							// 	),
+							// }}
 						></BrandRecommentItem>
 					) : (
 						<BrandRecommentItem />

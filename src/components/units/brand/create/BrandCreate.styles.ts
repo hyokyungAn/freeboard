@@ -27,7 +27,6 @@ export const BoldLine = styled.p`
 
 export const InputWrapper = styled.div`
 	display: flex;
-	/* align-items: center; */
 	margin-top: 24px;
 `;
 
@@ -58,7 +57,6 @@ export const Label = styled.p`
 	height: 45px;
 	align-self: center;
 	margin-bottom: 0;
-	/* color: ${(props) => props.aaa} */
 `;
 
 export const Text = styled.p`

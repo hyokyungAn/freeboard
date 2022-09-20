@@ -57,7 +57,5 @@ export default function ApolloSetting(props: IApolloSettingProps) {
 		connectToDevTools: true,
 	});
 
-	return (
-		check && <ApolloProvider client={client}>{props.children}</ApolloProvider>
-	);
+	return <ApolloProvider client={client}>{props.children}</ApolloProvider>;
 }

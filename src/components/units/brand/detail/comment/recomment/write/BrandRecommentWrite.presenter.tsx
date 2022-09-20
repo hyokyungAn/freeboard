@@ -17,21 +17,15 @@ export default function BrandRecommentWriteUI(
 			<S.ButtonWrapper>
 				<S.ButtonInnerWrapper>
 					{props.isAnswer && (
-						<MediumButton
-							type="button"
-							onClick={props.onClickCancel}
-							title="취소하기"
-						/>
+						<MediumButton onClick={props.onClickCancel} title="취소하기" />
 					)}
 					{props.isAnswerEdit && (
 						<MediumButton
-							type="button"
 							onClick={props.onClickBackButtonEdit}
 							title="취소하기"
 						/>
 					)}
 					<MediumButton
-						type="button"
 						isActive={true}
 						title={props.isAnswerEdit ? "수정하기" : "등록하기"}
 						onClick={

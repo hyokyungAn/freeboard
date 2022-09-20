@@ -13,26 +13,29 @@ export interface IData {
 }
 
 export interface IBrandRecommentItemProps {
-	refetch(
+	refetch?(
 		variables?: Partial<{ useditemQuestionId: string }> | undefined
 	): Promise<ApolloQueryResult<Array<IData>>>;
-	onClickDelete: (event: any) => void;
+	onClickDelete?: (event: any) => void;
 	el?: IData;
-	recommentData: {
+	recommentData?: {
 		fetchUseditemQuestionAnswers: Array<IData>;
 	};
 }
 export interface IBrandRecommentItemUIProps {
-	el?: any;
+	key: any;
+	el: any;
 	data?: any;
-	refetch(
+	refetch?(
 		variables?: Partial<OperationVariables> | undefined
 	): Promise<ApolloQueryResult<any>>;
-	onClickDelete: () => void;
+	onClickDelete?: (event: any) => void;
 	onClickUpdate: (event: any) => void;
 	isAnswerEdit: boolean;
 	answerEditId: string;
 	setIsAnswerEdit: Dispatch<SetStateAction<boolean>>;
 	setAnswerEditId: Dispatch<SetStateAction<string>>;
-	recommentData: string;
+	recommentData?: {
+		fetchUseditemQuestionAnswers: Array<IData>;
+	};
 }
