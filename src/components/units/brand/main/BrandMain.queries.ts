@@ -34,6 +34,13 @@ export const FETCH_USED_ITEMS_OF_THE_BEST = gql`
 			seller {
 				name
 			}
+			useditemAddress {
+				address
+				addressDetail
+			}
+			remarks
+			pickedCount
+			__typename
 		}
 	}
 `;

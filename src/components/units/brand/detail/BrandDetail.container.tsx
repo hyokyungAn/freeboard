@@ -1,7 +1,7 @@
 import { useMutation, useQuery } from "@apollo/client";
 import { Modal } from "antd";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { MouseEvent, useEffect, useState } from "react";
 import { useRecoilState } from "recoil";
 import { BasketState } from "../../../../commons/store";
 import { FETCH_USED_ITEMS } from "../../main/HomeMain.queries";
@@ -14,7 +14,7 @@ import {
 	FETCH_USER_LOGGED_IN,
 	TOGGLE_USED_ITEM_PICK,
 } from "./BrandDetail.queries";
-import { IBrandDetailProps } from "./BrandDetail.types";
+import { IBrandDetailProps, IFetchUseditemsIPicked } from "./BrandDetail.types";
 
 declare const window: typeof globalThis & {
 	kakao: any;
@@ -50,15 +50,15 @@ export default function BrandDetail(props: IBrandDetailProps) {
 	}, [data]);
 
 	useEffect(() => {
-		pickList?.fetchUseditemsIPicked.forEach((el: any) => {
+		pickList?.fetchUseditemsIPicked.forEach((el: IFetchUseditemsIPicked) => {
 			if (el._id === id) {
 				setIsActive(true);
 			}
 		});
 	}, [pickList?.fetchUseditemsIPicked]);
 
-	const onClickSubImage = (event: any) => {
-		setMainImg(event.target.id);
+	const onClickSubImage = (event: MouseEvent<HTMLImageElement>) => {
+		setMainImg(event.currentTarget.id);
 	};
 
 	const onClickBuy = async () => {
@@ -77,8 +77,8 @@ export default function BrandDetail(props: IBrandDetailProps) {
 			});
 			Modal.success({ content: "구매가 완료되었습니다." });
 			router.push("/brand/main");
-		} catch (error: any) {
-			Modal.error({ content: error.message });
+		} catch (error) {
+			Modal.error({ content: (error as Error).message });
 		}
 	};
 
@@ -96,8 +96,8 @@ export default function BrandDetail(props: IBrandDetailProps) {
 					});
 					Modal.success({ content: "게시물이 삭제되었습니다." });
 					router.push("/brand/main");
-				} catch (error: any) {
-					Modal.error({ content: error.message });
+				} catch (error) {
+					Modal.error({ content: (error as Error).message });
 				}
 			},
 		});
@@ -126,7 +126,7 @@ export default function BrandDetail(props: IBrandDetailProps) {
 
 	const onClickPick = async () => {
 		try {
-			const result = await toggleUseditemPick({
+			await toggleUseditemPick({
 				variables: { useditemId: id },
 				refetchQueries: [
 					{
@@ -139,8 +139,8 @@ export default function BrandDetail(props: IBrandDetailProps) {
 			});
 			router.replace(router.asPath);
 			setIsActive((prev) => !prev);
-		} catch (error: any) {
-			console.log(error.message);
+		} catch (error) {
+			console.log((error as Error).message);
 		}
 	};
 
@@ -156,8 +156,8 @@ export default function BrandDetail(props: IBrandDetailProps) {
 				const mapContainer = document.getElementById("map"), // 지도를 표시할 div
 					mapOption = {
 						center: new window.kakao.maps.LatLng(
-							data?.fetchUseditem.useditemAddress.lat,
-							data?.fetchUseditem.useditemAddress.lng
+							data?.fetchUseditem.useditemAddress.lat || 36.3708,
+							data?.fetchUseditem.useditemAddress.lng || 127.3882
 						), // 지도의 중심좌표
 						level: 3, // 지도의 확대 레벨
 					};
@@ -184,7 +184,6 @@ export default function BrandDetail(props: IBrandDetailProps) {
 	return (
 		<MarketDetailUI
 			data={data}
-			el={props.el}
 			isActive={isActive}
 			onClickBuy={onClickBuy}
 			onclickEdit={onclickEdit}

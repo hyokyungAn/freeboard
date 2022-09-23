@@ -1,13 +1,38 @@
 import { Dispatch, SetStateAction } from "react";
 import {
 	FormState,
+	UseFormGetValues,
 	UseFormHandleSubmit,
 	UseFormRegister,
 } from "react-hook-form";
 
+export interface IFetchUseditem {
+	_id: string;
+	name: string;
+	remarks: string;
+	contents: string;
+	price: number;
+	tags: string[];
+	useditemAddress: {
+		zipcode: string;
+		address: string;
+		addressDetail: string;
+		lat: number;
+		lng: number;
+	};
+	images: string[];
+}
+
 export interface IBrandCreateProps {
 	isEdit: boolean;
-	data?: any;
+	data?: {
+		fetchUseditem: IFetchUseditem;
+	};
+}
+
+export interface IDaumPostCodeData {
+	address: string;
+	zonecode: string;
 }
 
 export interface IUpdateBrandInput {
@@ -40,7 +65,9 @@ export interface IForm {
 }
 
 export interface IBrandCreateUIProps {
-	data?: any;
+	data?: {
+		fetchUseditem: IFetchUseditem;
+	};
 	register: UseFormRegister<IForm>;
 	handleSubmit: UseFormHandleSubmit<IForm>;
 	formState: FormState<IForm>;
@@ -51,8 +78,8 @@ export interface IBrandCreateUIProps {
 	setTagItem: Dispatch<SetStateAction<string>>;
 	tagList: string[];
 	setTagList: Dispatch<SetStateAction<string[]>>;
-	getValues: any;
-	titleError?: any;
+	getValues: UseFormGetValues<IForm>;
+	titleError?: string;
 	onClickSubmit: (data: IForm) => void;
 	onClickUpdate: (data: IForm) => void;
 	onClickCancel: () => void;
@@ -60,6 +87,6 @@ export interface IBrandCreateUIProps {
 	onChangeFileUrls: (fileUrls: string, index: number) => void;
 	onChangeContents: (contents: string) => void;
 	onChangeRemarks: (value: string) => void;
-	onCompleteAddressSearch: (data: any) => void;
+	onCompleteAddressSearch: (data: IDaumPostCodeData) => void;
 	onToggleModal: () => void;
 }

@@ -1,4 +1,8 @@
-import { IBrandMainUIProps } from "./BrandMain.types";
+import {
+	IBrandMainUIProps,
+	IFetchUseditems,
+	IFetchUseditemsOfTheBest,
+} from "./BrandMain.types";
 import * as S from "./BrandMain.styles";
 import { v4 as uuidv4 } from "uuid";
 import InfiniteScroll from "react-infinite-scroller";
@@ -12,14 +16,11 @@ export default function BrandMainUI(props: IBrandMainUIProps) {
 			<S.BestWrapper>
 				<S.Text>BEST</S.Text>
 				<S.BestProductWrapper>
-					{props.bestData?.fetchUseditemsOfTheBest.map((el: any) => (
-						<ProductCard
-							key={uuidv4()}
-							el={el}
-							pickList={props.pickList}
-							fetchMore={props.fetchMore}
-						/>
-					))}
+					{props.bestData?.fetchUseditemsOfTheBest.map(
+						(el: IFetchUseditemsOfTheBest) => (
+							<ProductCard key={uuidv4()} el={el} pickList={props.pickList} />
+						)
+					)}
 				</S.BestProductWrapper>
 			</S.BestWrapper>
 			<S.ButtonSearchWrapper>
@@ -46,7 +47,7 @@ export default function BrandMainUI(props: IBrandMainUIProps) {
 				useWindow={true}
 			>
 				<S.InnerWrapper>
-					{props.data?.fetchUseditems.map((el: any) => (
+					{props.data?.fetchUseditems.map((el: IFetchUseditems) => (
 						<ProductCard key={uuidv4()} el={el} pickList={props.pickList} />
 					))}
 				</S.InnerWrapper>

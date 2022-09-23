@@ -36,11 +36,6 @@ export default function BrandMain() {
 		router.push("/brand/create");
 	};
 
-	const onClickMoveToBrandDetail =
-		(el: any) => (event: MouseEvent<HTMLDivElement>) => {
-			router.push(`/brand/${event?.currentTarget.id}`);
-		};
-
 	const loadFunc = () => {
 		if (!data) return;
 
@@ -127,7 +122,6 @@ export default function BrandMain() {
 					loadFuncPick={loadFuncPick}
 					onChangeKeyword={onChangeKeyword}
 					onClickMoveToBrandCreate={onClickMoveToBrandCreate}
-					onClickMoveToBrandDetail={onClickMoveToBrandDetail}
 				/>
 			)}
 		</>

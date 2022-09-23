@@ -9,12 +9,7 @@ export default function HomeMainUI(props: IHomeMainUIProps) {
 			<S.Text>New Arrival</S.Text>
 			<S.InnerWrapper>
 				{props.data?.fetchUseditems.slice(0, 8).map((el: any) => (
-					<ProductCard
-						key={uuidv4()}
-						el={el}
-						pickList={props.pickList}
-						fetchMore={props.fetchMore}
-					/>
+					<ProductCard key={uuidv4()} el={el} pickList={props.pickList} />
 				))}
 			</S.InnerWrapper>
 		</S.Wrapper>

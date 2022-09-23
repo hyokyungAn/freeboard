@@ -27,8 +27,8 @@ export default function Uploads01(props: IUploads01Props) {
 			// BoardWrite에서 prop로 받아온 onchangeFileUrls 함수에
 			// 스토리지에 업로드가 완료된 file의 url을 넘겨줌
 			props.onChangeFileUrls(result.data.uploadFile.url, props.index);
-		} catch (error: any) {
-			Modal.error({ content: error.message });
+		} catch (error) {
+			Modal.error({ content: (error as Error).message });
 		}
 	};
 

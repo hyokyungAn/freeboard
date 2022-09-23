@@ -2,7 +2,6 @@ import { useMutation } from "@apollo/client";
 import { AxiosError } from "axios";
 import dynamic from "next/dynamic";
 import { useMemo, useRef } from "react";
-import { UseFormGetValues } from "react-hook-form";
 import { UPLOAD_FILE } from "../uploads/01/Uploads01.queries";
 
 const ReactQuill = dynamic(
@@ -38,17 +37,16 @@ const formats = [
 	"video",
 ];
 
-interface IData {
-	title: string;
-	contents: string;
-	price: number;
-	quantity: number;
-	origin: string;
-}
+// interface IData {
+// 	title: string;
+// 	contents: string;
+// 	price: number;
+// 	quantity: number;
+// 	origin: string;
+// }
 
 interface IProps {
-	getValues: UseFormGetValues<IData>;
-	// defaultValue: any;
+	contents: string;
 	onChangeContent: (value: string) => void;
 }
 
@@ -139,7 +137,7 @@ export default function ReactQuillContainer(props: IProps) {
 			placeholder="상품을 설명해주세요."
 			modules={modules}
 			formats={formats}
-			value={props.getValues("contents") || ""}
+			value={props.contents}
 			onChange={props.onChangeContent}
 		/>
 	);

@@ -1,15 +1,41 @@
 import { MouseEvent } from "react";
 
+export interface IFetchUseditems {
+	_id: string;
+	name: string;
+	remarks: string;
+	contents: string;
+	price: number;
+	seller: {
+		name: string;
+	};
+	useditemAddress: {
+		address: string;
+		addressDetail: string;
+	};
+	images: string[];
+	pickedCount: number;
+	tags: string[];
+	__typename: string;
+}
+
+export interface IFetchUseditemsIPicked {
+	_id: string;
+	pickedCount: number;
+}
+
 export interface IProductCardProps {
-	el: any;
-	data?: any;
-	pickList: any;
-	fetchMore?: any;
+	el: IFetchUseditems;
+	pickList: {
+		fetchUseditemsIPicked: IFetchUseditemsIPicked[];
+	};
 }
 
 export interface IProductCardUIProps {
-	el: any;
+	el: IFetchUseditems;
 	isActive: Boolean;
 	onClickPick: (event: MouseEvent<HTMLDivElement>) => void;
-	onClickMoveToBrandDetail: (el: any) => (event: any) => void;
+	onClickMoveToBrandDetail: (
+		el: IFetchUseditems
+	) => (event: MouseEvent<HTMLDivElement>) => void;
 }

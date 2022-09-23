@@ -47,8 +47,8 @@ export default function Join() {
 			});
 			Modal.success({ content: "회원가입이 완료되었습니다." });
 			router.push("/login");
-		} catch (error: any) {
-			Modal.error({ content: error.message });
+		} catch (error) {
+			Modal.error({ content: (error as Error).message });
 		}
 	};
 

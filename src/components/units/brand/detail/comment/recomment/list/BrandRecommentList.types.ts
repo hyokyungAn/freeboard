@@ -1,4 +1,5 @@
 import { ApolloQueryResult, OperationVariables } from "@apollo/client";
+import { MouseEvent } from "react";
 
 export interface IData {
 	_id: string;
@@ -24,5 +25,5 @@ export interface IBrandRecommentListUIProps {
 	refetch(
 		variables?: Partial<{ useditemQuestionId: string }> | undefined
 	): Promise<ApolloQueryResult<Array<IData>>>;
-	onClickDelete: (event: any) => void;
+	onClickDelete: (event: MouseEvent<HTMLDivElement>) => void;
 }

@@ -20,7 +20,7 @@ export default function BrandDetailUI(props: IBrandDetailUIProps) {
 					<S.ImgWrapper>
 						<S.Img src={`https://storage.googleapis.com/${props.mainImg}`} />
 						<S.StyledSlider {...settings}>
-							{props.data.fetchUseditem.images.map((el: any) => (
+							{props.data.fetchUseditem.images.map((el: string) => (
 								<S.SubImage
 									onClick={props.onClickSubImage}
 									key={uuidv4()}
@@ -94,9 +94,11 @@ export default function BrandDetailUI(props: IBrandDetailUIProps) {
 							<S.Remarks />
 						)}
 						<S.TagsWrapper>
-							{props.data?.fetchUseditem.tags.map((el: any, index: any) => (
-								<S.Tags key={index}>#{el}</S.Tags>
-							))}
+							{props.data?.fetchUseditem.tags.map(
+								(el: string, index: number) => (
+									<S.Tags key={index}>#{el}</S.Tags>
+								)
+							)}
 						</S.TagsWrapper>
 					</S.RemarksTagsWrapper>
 					<S.ThinLine></S.ThinLine>

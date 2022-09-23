@@ -60,8 +60,8 @@ export default function Login() {
 			localStorage.setItem("accessToken", accessToken);
 			localStorage.setItem("userInfo", JSON.stringify(userInfo));
 			router.push("/");
-		} catch (error: any) {
-			Modal.error({ content: error.message });
+		} catch (error) {
+			Modal.error({ content: (error as Error).message });
 		}
 	};
 

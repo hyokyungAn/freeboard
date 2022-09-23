@@ -29,8 +29,8 @@ export default function BrandCommentList(props: IBrandCommentListProps) {
 				],
 			});
 			Modal.success({ content: "댓글이 삭제 되었습니다!" });
-		} catch (error: any) {
-			Modal.error({ content: error.message });
+		} catch (error) {
+			Modal.error({ content: (error as Error).message });
 		}
 	};
 

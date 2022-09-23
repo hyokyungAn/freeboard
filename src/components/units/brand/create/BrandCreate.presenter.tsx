@@ -56,7 +56,7 @@ export default function BrandCreateUI(props: IBrandCreateUIProps) {
 					<S.Text>상품내용</S.Text>
 					<S.InputErrorWrapper>
 						<ReactQuillContainer
-							getValues={props.getValues}
+							contents={props.getValues("contents") || ""}
 							onChangeContent={props.onChangeContents}
 						/>
 						<S.Error>{props.formState.errors.contents?.message}</S.Error>

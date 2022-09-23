@@ -7,7 +7,11 @@ import { CREATE_USED_ITEM, UPDATE_USED_ITEM } from "./BrandCreate.queries";
 import { Modal } from "antd";
 import { useEffect, useState } from "react";
 import BrandCreateUI from "./BrandCreate.presenter";
-import { IBrandCreateProps, IForm } from "./BrandCreate.types";
+import {
+	IBrandCreateProps,
+	IDaumPostCodeData,
+	IForm,
+} from "./BrandCreate.types";
 
 declare const window: typeof globalThis & {
 	kakao: any;
@@ -134,7 +138,7 @@ export default function BrandCreate(props: IBrandCreateProps) {
 		setIsOpen(true);
 	};
 
-	const onCompleteAddressSearch = (data: any) => {
+	const onCompleteAddressSearch = (data: IDaumPostCodeData) => {
 		setValue("address", data.address);
 		setValue("zipcode", data.zonecode);
 
@@ -177,8 +181,8 @@ export default function BrandCreate(props: IBrandCreateProps) {
 			});
 			Modal.success({ content: "상품 등록이 완료되었습니다." });
 			router.push(`/brand/${result.data.createUseditem._id}`);
-		} catch (error: any) {
-			Modal.error({ content: error.message });
+		} catch (error) {
+			Modal.error({ content: (error as Error).message });
 		}
 	};
 
@@ -206,8 +210,8 @@ export default function BrandCreate(props: IBrandCreateProps) {
 			});
 			Modal.success({ content: "상품 수정이 완료되었습니다." });
 			router.push(`/brand/${router.query.useditemId}`);
-		} catch (error: any) {
-			Modal.error({ content: error.message });
+		} catch (error) {
+			Modal.error({ content: (error as Error).message });
 		}
 	};
 

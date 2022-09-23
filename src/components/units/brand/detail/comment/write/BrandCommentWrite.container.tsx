@@ -40,8 +40,8 @@ export default function BrandCommentWrite(props: IBrandCommentWriteProps) {
 			Modal.success({ content: "댓글이 등록되었습니다!" });
 			if (formRef.current) formRef.current.value = "";
 			// formRef.current.reset()
-		} catch (error: any) {
-			Modal.error({ content: error.message });
+		} catch (error) {
+			Modal.error({ content: (error as Error).message });
 		}
 	};
 
@@ -67,8 +67,8 @@ export default function BrandCommentWrite(props: IBrandCommentWriteProps) {
 			});
 			props.setIsEdit?.(false);
 			Modal.success({ content: "수정이 완료되었습니다!" });
-		} catch (error: any) {
-			Modal.error({ content: error.message });
+		} catch (error) {
+			Modal.error({ content: (error as Error).message });
 		}
 	};
 

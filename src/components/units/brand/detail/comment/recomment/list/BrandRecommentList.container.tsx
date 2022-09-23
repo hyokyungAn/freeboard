@@ -1,6 +1,6 @@
 import { useMutation, useQuery } from "@apollo/client";
 import { Modal } from "antd";
-import React from "react";
+import React, { MouseEvent } from "react";
 import BrandRecommentListUI from "./BrandRecommentList.presenter";
 import {
 	DELETE_USED_QUESTION_ANSWER,
@@ -20,17 +20,17 @@ export default function BrandRecommentList(props: IBrandRecommentListProps) {
 		DELETE_USED_QUESTION_ANSWER
 	);
 
-	const onClickDelete = async (event: any) => {
+	const onClickDelete = async (event: MouseEvent<HTMLDivElement>) => {
 		try {
 			await deleteUseditemQuestionAnswer({
 				variables: {
-					useditemQuestionAnswerId: event.target.id,
+					useditemQuestionAnswerId: event.currentTarget.id,
 				},
 			});
 			refetch();
 			Modal.success({ content: "댓글이 삭제 되었습니다!" });
-		} catch (error: any) {
-			Modal.error({ content: error.message });
+		} catch (error) {
+			Modal.error({ content: (error as Error).message });
 		}
 	};
 
