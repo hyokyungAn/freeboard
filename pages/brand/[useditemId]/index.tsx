@@ -4,7 +4,6 @@ import BrandCommentList from "../../../src/components/units/brand/detail/comment
 import BrandCommentWrite from "../../../src/components/units/brand/detail/comment/write/BrandCommentWrite.container";
 
 export default function BrandDetailPage() {
-	useAuth();
 	return (
 		<>
 			<BrandDetail />

@@ -1,5 +1,5 @@
 import { useQuery } from "@apollo/client";
-import { useState } from "react";
+import { MouseEvent, useState } from "react";
 import BrandCommentItemUI from "./BrandCommentItem.presenter";
 import { FETCH_USER_LOGGED_IN } from "./BrandCommentItem.queries";
 import { IBrandCommentItemProps } from "./BrandCommentItem.types";
@@ -11,14 +11,14 @@ export default function BrandCommentItem(props: IBrandCommentItemProps) {
 	const [isAnswer, setIsAnswer] = useState(false);
 	const [answerId, setAnswerId] = useState("");
 
-	const onClickUpdate = (event: any) => {
+	const onClickUpdate = (event: MouseEvent<HTMLImageElement>) => {
 		setIsEdit((prev) => !prev);
-		setEditId(event.target.id);
+		setEditId(event.currentTarget.id);
 	};
 
-	const onClickRecomment = (event: any) => {
+	const onClickRecomment = (event: MouseEvent<HTMLImageElement>) => {
 		setIsAnswer((prev) => !prev);
-		setAnswerId(event.target.id);
+		setAnswerId(event.currentTarget.id);
 	};
 
 	return (

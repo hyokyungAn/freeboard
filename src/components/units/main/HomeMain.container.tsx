@@ -1,5 +1,4 @@
 import { useQuery } from "@apollo/client";
-import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import HomeMainUI from "./HomeMain.presenter";
 import {
@@ -8,11 +7,7 @@ import {
 } from "./HomeMain.queries";
 
 export default function HomeMain() {
-	// const router = useRouter();
 	const [check, setCheck] = useState(true);
-
-	// const id = router.query?.useditemId;
-
 	const { data, loading } = useQuery(FETCH_USED_ITEMS);
 	const {
 		data: pickList,

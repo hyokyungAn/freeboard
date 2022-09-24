@@ -1,25 +1,25 @@
 import { useMutation, useQuery } from "@apollo/client";
 import { Modal } from "antd";
 import { useRouter } from "next/router";
+import { MouseEvent } from "react";
 import BrandCommentListUI from "./BrandCommentList.presenter";
 import {
 	DELETE_USED_ITEM_QUESTION,
 	FETCH_USED_ITEM_QUESTIONS,
 } from "./BrandCommentList.queries";
-import { IBrandCommentListProps } from "./BrandCommentList.types";
 
-export default function BrandCommentList(props: IBrandCommentListProps) {
+export default function BrandCommentList() {
 	const router = useRouter();
 	const { data, fetchMore } = useQuery(FETCH_USED_ITEM_QUESTIONS, {
 		variables: { useditemId: router.query.useditemId },
 	});
 	const [deleteUseditemQuestion] = useMutation(DELETE_USED_ITEM_QUESTION);
 
-	const onClickDelete = async (event: any) => {
+	const onClickDelete = async (event: MouseEvent<HTMLImageElement>) => {
 		try {
 			await deleteUseditemQuestion({
 				variables: {
-					useditemQuestionId: event.target.id,
+					useditemQuestionId: event.currentTarget.id,
 				},
 				refetchQueries: [
 					{

@@ -5,5 +5,10 @@ export interface ILoginUIProps {
 	register: any;
 	formState: any;
 	isActive?: boolean;
-	onClickLogin: (data: any) => void;
+	onClickLogin: (data: ILoginUser) => void;
+}
+
+export interface ILoginUser {
+	email: string;
+	password: string;
 }

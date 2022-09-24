@@ -1,5 +1,4 @@
-import { ApolloQueryResult, OperationVariables } from "@apollo/client";
-import { ChangeEvent, Dispatch, SetStateAction } from "react";
+import { ChangeEvent, Dispatch, MouseEvent, SetStateAction } from "react";
 
 export interface IBrandRecommentWriteProps {
 	el?: any;
@@ -12,7 +11,7 @@ export interface IBrandRecommentWriteProps {
 	answerEditId?: string;
 	firstId?: string;
 	recommentData?: any;
-	onClickRecomment?: (event: ChangeEvent<HTMLTextAreaElement>) => void;
+	onClickRecomment?: (event: MouseEvent<HTMLImageElement>) => void;
 }
 
 export interface IBrandRecommentWriteUIProps {
@@ -24,5 +23,5 @@ export interface IBrandRecommentWriteUIProps {
 	onClickAnswerUpdate: (data: any) => void;
 	onClickCancel: () => void;
 	onClickBackButtonEdit: () => void;
-	onChangeComment: (event: any) => void;
+	onChangeComment: (event: ChangeEvent<HTMLTextAreaElement>) => void;
 }

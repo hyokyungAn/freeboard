@@ -1,6 +1,6 @@
 import { useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
-import { MouseEvent, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import BrandMainUI from "./BrandMain.presenter";
 import {
 	FETCH_USED_ITEMS,

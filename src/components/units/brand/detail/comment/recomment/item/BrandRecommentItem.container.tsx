@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { MouseEvent, useState } from "react";
 import BrandRecommentItemUI from "./BrandRecommentItem.presenter";
 import { IBrandRecommentItemProps } from "./BrandRecommentItem.types";
 
@@ -6,9 +6,9 @@ export default function BrandRecommentItem(props: IBrandRecommentItemProps) {
 	const [isAnswerEdit, setIsAnswerEdit] = useState(false);
 	const [answerEditId, setAnswerEditId] = useState("");
 
-	const onClickUpdate = (event: any) => {
+	const onClickUpdate = (event: MouseEvent<HTMLImageElement>) => {
 		setIsAnswerEdit((prev) => !prev);
-		setAnswerEditId(event.target.id);
+		setAnswerEditId(event.currentTarget.id);
 	};
 
 	return (

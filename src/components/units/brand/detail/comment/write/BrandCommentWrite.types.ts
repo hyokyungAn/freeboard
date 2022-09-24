@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction } from "react";
+import { ChangeEvent, Dispatch, SetStateAction } from "react";
 
 export interface IBrandCommentWriteProps {
 	setIsEdit?: Dispatch<SetStateAction<boolean>>;
@@ -13,7 +13,7 @@ export interface IBrandCommentWriteUIProps {
 	onClickUpdate: () => void;
 	onClickWrite: () => void;
 	onClickCancel: () => void;
-	onChangeComment: (event: any) => void;
+	onChangeComment: (event: ChangeEvent<HTMLTextAreaElement>) => void;
 	formRef: any;
 	contents: any;
 }

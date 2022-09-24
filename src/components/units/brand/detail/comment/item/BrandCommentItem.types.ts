@@ -1,9 +1,9 @@
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch, MouseEvent, SetStateAction } from "react";
 
 export interface IBrandCommentItemProps {
 	el: any;
-	onClickDelete: (event: any) => void;
-	onClickRecomment?: (event: any) => void;
+	onClickDelete: (event: MouseEvent<HTMLImageElement>) => void;
+	onClickRecomment?: (event: MouseEvent<HTMLImageElement>) => void;
 }
 
 export interface IBrandCommentItemUIProps {
@@ -16,7 +16,7 @@ export interface IBrandCommentItemUIProps {
 	setIsEdit: Dispatch<SetStateAction<boolean>>;
 	setEditId: Dispatch<SetStateAction<string>>;
 	setIsAnswer: Dispatch<SetStateAction<boolean>>;
-	onClickUpdate: (event: any) => void;
-	onClickDelete: (event: any) => void;
-	onClickRecomment: (event: any) => void;
+	onClickUpdate: (event: MouseEvent<HTMLImageElement>) => void;
+	onClickDelete: (event: MouseEvent<HTMLImageElement>) => void;
+	onClickRecomment: (event: MouseEvent<HTMLImageElement>) => void;
 }

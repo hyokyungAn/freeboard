@@ -1,4 +1,3 @@
-import MediumButton from "../../../../../commons/buttons/medium";
 import * as S from "./BrandCommentWrite.styles";
 import { IBrandCommentWriteUIProps } from "./BrandCommentWrite.types";
 
@@ -14,14 +13,6 @@ export default function BrandCommentWriteUI(props: IBrandCommentWriteUIProps) {
 			/>
 			<S.ButtonWrapper>
 				<S.ContentsLength>{props.contents.length}/100</S.ContentsLength>
-				{/* {props.isEdit && (
-						<MediumButton onClick={props.onClickCancel} title="취소하기" />
-					)}
-					<MediumButton
-						isActive={true}
-						title={props.isEdit ? "수정하기" : "작성하기"}
-						onClick={props.isEdit ? props.onClickUpdate : props.onClickWrite}
-					/> */}
 				{props.isEdit && (
 					<S.Button
 						onClick={props.onClickCancel}

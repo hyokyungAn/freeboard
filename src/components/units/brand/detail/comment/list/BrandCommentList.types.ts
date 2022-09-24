@@ -1,10 +1,7 @@
-export interface IBrandCommentListProps {
-	data?: any;
-	onClickDelete?: () => void;
-}
+import { MouseEvent } from "react";
 
 export interface IBrandCommentListUIProps {
 	data?: any;
 	loadFunc: any;
-	onClickDelete: (event: any) => void;
+	onClickDelete: (event: MouseEvent<HTMLImageElement>) => void;
 }

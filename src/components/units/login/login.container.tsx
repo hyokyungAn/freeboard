@@ -8,6 +8,7 @@ import * as yup from "yup";
 import { FETCH_USER_LOGGED_IN, LOGIN_USER } from "./login.queries";
 import LoginUI from "./login.presenter";
 import { Modal } from "antd";
+import { ILoginUser } from "./login.types";
 
 const schema = yup.object({
 	email: yup
@@ -35,7 +36,7 @@ export default function Login() {
 
 	const [loginUser] = useMutation(LOGIN_USER);
 
-	const onClickLogin = async (data: any) => {
+	const onClickLogin = async (data: ILoginUser) => {
 		try {
 			// 로그인하기
 			const result = await loginUser({
