@@ -51,7 +51,6 @@ export default function BrandRecommentWrite(props: IBrandRecommentWriteProps) {
 
 	const onClickAnswerUpdate = async () => {
 		if (!contents) {
-			// props.setIsAnswerEdit((prev) => !prev);
 			Modal.error({ content: "수정된 내용이 없습니다." });
 			return;
 		}
@@ -64,7 +63,7 @@ export default function BrandRecommentWrite(props: IBrandRecommentWriteProps) {
 					useditemQuestionAnswerId: props.answerEditId,
 				},
 			});
-			props.refetch();
+			if (props.refetch) props.refetch();
 			if (props.setIsAnswerEdit)
 				props.setIsAnswerEdit((prev: boolean) => !prev);
 			Modal.success({ content: "답글이 수정 되었습니다!" });

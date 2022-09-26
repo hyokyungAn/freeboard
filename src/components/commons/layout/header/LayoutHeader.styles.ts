@@ -22,6 +22,8 @@ export const InnerLogo = styled.img`
 	cursor: pointer;
 `;
 
+export const ButtonWrapper = styled.div``;
+
 export const InnerButton = styled.span`
 	margin: 10px;
 	cursor: pointer;

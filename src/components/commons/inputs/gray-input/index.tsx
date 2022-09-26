@@ -5,7 +5,14 @@ interface IGrayInputProps {
 	type?: string;
 	placeholder?: string;
 	register: UseFormRegisterReturn<
-		"name" | "remarks" | "price" | "address" | "addressDetail"
+		| "name"
+		| "remarks"
+		| "price"
+		| "address"
+		| "addressDetail"
+		| "email"
+		| "password"
+		| "passwordCheck"
 	>;
 	defaultValue?: string | number;
 	readOnly?: boolean;

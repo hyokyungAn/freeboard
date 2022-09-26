@@ -13,7 +13,12 @@ export default function BrandMain() {
 	const [keyword, setKeyword] = useState("");
 	const [check, setCheck] = useState(true);
 
-	const { data, loading, fetchMore, refetch } = useQuery(FETCH_USED_ITEMS);
+	const { data, loading, fetchMore, refetch } = useQuery(FETCH_USED_ITEMS, {
+		variables: {
+			search: "",
+			page: 1,
+		},
+	});
 	const { data: fetchUseditemsOfTheBest } = useQuery(
 		FETCH_USED_ITEMS_OF_THE_BEST
 	);

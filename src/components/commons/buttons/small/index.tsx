@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 
 interface IButtonProps {
 	isActive?: boolean;
-	title: any;
+	title: string;
 }
 
 interface IProps {

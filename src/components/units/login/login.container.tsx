@@ -5,7 +5,7 @@ import { accessTokenState, userInfoState } from "../../../commons/store";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { FETCH_USER_LOGGED_IN, LOGIN_USER } from "./login.queries";
+import { LOGIN_USER } from "./login.queries";
 import LoginUI from "./login.presenter";
 import { Modal } from "antd";
 import { ILoginUser } from "./login.types";
@@ -25,41 +25,25 @@ const schema = yup.object({
 });
 
 export default function Login() {
-	const { register, handleSubmit, formState } = useForm({
+	const { register, handleSubmit, formState } = useForm<ILoginUser>({
 		resolver: yupResolver(schema),
 		mode: "onChange",
 	});
 	const router = useRouter();
-	const [accessToken, setAccessToken] = useRecoilState(accessTokenState);
-	const [userInfo, setUserInfo] = useRecoilState(userInfoState);
-	const client = useApolloClient();
+	const [, setAccessToken] = useRecoilState(accessTokenState);
 
 	const [loginUser] = useMutation(LOGIN_USER);
 
 	const onClickLogin = async (data: ILoginUser) => {
 		try {
-			// 로그인하기
 			const result = await loginUser({
-				variables: { email: data.email, password: data.password },
-			});
-			const accessToken = result.data?.loginUser.accessToken;
-
-			// 유저정보 가지고 오기
-			const resultUserInfo = await client.query({
-				query: FETCH_USER_LOGGED_IN,
-				context: {
-					headers: {
-						Authorization: `Bearer ${accessToken}`,
-					},
+				variables: {
+					email: data.email,
+					password: data.password,
 				},
 			});
-
-			// 글로벌스테이트에 저장하기
-			const userInfo = resultUserInfo.data.fetchUserLoggedIn;
+			const accessToken = result.data?.loginUser.accessToken;
 			setAccessToken(accessToken);
-			setUserInfo(userInfo);
-			localStorage.setItem("accessToken", accessToken);
-			localStorage.setItem("userInfo", JSON.stringify(userInfo));
 			router.push("/");
 		} catch (error) {
 			Modal.error({ content: (error as Error).message });

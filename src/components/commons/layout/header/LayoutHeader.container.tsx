@@ -2,18 +2,19 @@ import { useMutation, useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { useRecoilState } from "recoil";
-import { accessTokenState, BasketState } from "../../../../commons/store";
+import { accessTokenState } from "../../../../commons/store";
 import LayoutHeaderUI from "./LayoutHeader.presenter";
 import { FETCH_USER_LOGGED_IN, LOGOUT_USER } from "./LayoutHeader.queries";
+import { IBasket } from "./LayoutHeader.types";
 
 export default function LayoutHeader() {
 	const router = useRouter();
 
 	const { data, refetch } = useQuery(FETCH_USER_LOGGED_IN);
 	const [isModalVisible, setIsModalVisible] = useState(false);
-	const [accessToken, setAccessToken] = useRecoilState(accessTokenState);
+	const [, setAccessToken] = useRecoilState(accessTokenState);
 	const [logoutUser] = useMutation(LOGOUT_USER);
-	const [basket, setBasket] = useRecoilState(BasketState);
+	const [basket, setBasket] = useState<IBasket[]>([]);
 
 	const onClickLogo = () => {
 		router.push("/");
@@ -28,13 +29,12 @@ export default function LayoutHeader() {
 	};
 
 	const onClickLoggedOut = () => {
-		if (localStorage.getItem("accessToken")) {
+		try {
 			setAccessToken("");
-			localStorage.removeItem("accessToken");
 			logoutUser();
 			router.push("/");
-		} else {
-			router.push("/join");
+		} catch (error) {
+			console.log((error as Error).message);
 		}
 	};
 

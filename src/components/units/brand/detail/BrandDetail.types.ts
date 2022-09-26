@@ -44,3 +44,13 @@ export interface IFetchUseditem {
 		lng: string;
 	};
 }
+
+export interface IBasket {
+	contents?: string;
+	images?: string[];
+	name?: string;
+	pickedCount?: number;
+	price?: number;
+	remarks?: string;
+	_id?: string;
+}

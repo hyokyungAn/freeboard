@@ -1,9 +1,13 @@
-import { FieldValues, UseFormHandleSubmit } from "react-hook-form";
+import {
+	FormState,
+	UseFormHandleSubmit,
+	UseFormRegister,
+} from "react-hook-form";
 
 export interface ILoginUIProps {
-	handleSubmit: UseFormHandleSubmit<FieldValues>;
-	register: any;
-	formState: any;
+	handleSubmit: UseFormHandleSubmit<ILoginUser>;
+	register: UseFormRegister<ILoginUser>;
+	formState: FormState<ILoginUser>;
 	isActive?: boolean;
 	onClickLogin: (data: ILoginUser) => void;
 }

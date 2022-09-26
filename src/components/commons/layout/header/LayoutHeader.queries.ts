@@ -24,11 +24,3 @@ export const LOGOUT_USER = gql`
 		logoutUser
 	}
 `;
-
-// export const FETCH_POINT_TRANSACTIONS = gql`
-// 	query fetchPointTransactions($search: String, $page: Int) {
-// 		fetchPointTransactions(search: $search, page: $page) {
-// 			balance
-// 		}
-// 	}
-// `;

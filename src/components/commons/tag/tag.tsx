@@ -1,41 +1,70 @@
-import React, { useEffect } from "react";
+import React, {
+	ChangeEvent,
+	Dispatch,
+	MouseEvent,
+	SetStateAction,
+	useEffect,
+	KeyboardEvent,
+} from "react";
 import styled from "@emotion/styled";
 
 interface ITagProps {
-	tagList: any;
-	setTagList: any;
-	setTagItem: any;
-	data: any;
-	tagItem: any;
-	defaultValue: any;
+	tagList: string[];
+	setTagList: Dispatch<SetStateAction<string[]>>;
+	setTagItem: Dispatch<SetStateAction<string>>;
+	data?: {
+		fetchUseditem: IFetchUseditem;
+	};
+	tagItem: string;
+	defaultValue?: string[];
+}
+
+export interface IFetchUseditem {
+	_id: string;
+	name: string;
+	remarks: string;
+	contents: string;
+	price: number;
+	tags: string[];
+	useditemAddress: {
+		zipcode: string;
+		address: string;
+		addressDetail: string;
+		lat: number;
+		lng: number;
+	};
+	images: string[];
 }
 
 export default function Tag(props: ITagProps) {
-	const onKeyPress = (event: any) => {
+	const onKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
+		const target = event.target as HTMLInputElement;
 		if (event.key === "Enter") {
-			if (event.target.value === "") return;
+			console.log(event);
+			if (target.value === "") return;
 			//처음에 입력한 값
 			if (props.tagList === undefined) {
-				props.setTagList([event.target.value]);
+				props.setTagList([target.value]);
 				props.setTagItem("");
 			} else {
 				//추가로 입력한 값
-				props.setTagList((prev: any) => [...prev, event.target.value]);
+				props.setTagList((prev: string[]) => [...prev, target.value]);
 				// addList.filter((tagList: any) => tagList !== e.target.value);
 				props.setTagItem("");
 			}
 		}
 	};
 
-	const deleteTagItem = (event: any) => {
-		const deleteTagItem = event.target.parentElement.firstChild.innerText;
+	const deleteTagItem = (event: MouseEvent<HTMLButtonElement>) => {
+		const deleteTagItem =
+			event.currentTarget.parentElement?.firstChild?.textContent;
 		const filteredTagList = props.tagList.filter(
-			(tagItem: any) => tagItem !== deleteTagItem
+			(tagItem: string) => tagItem !== deleteTagItem
 		);
 		props.setTagList(filteredTagList);
 	};
 
-	const onChangeInput = (event: any) => {
+	const onChangeInput = (event: ChangeEvent<HTMLInputElement>) => {
 		props.setTagItem(event.target.value);
 	};
 
@@ -48,7 +77,7 @@ export default function Tag(props: ITagProps) {
 	return (
 		<TagBox>
 			{/* 등록시 map */}
-			{props.tagList?.map((tagItem: any, index: number) => {
+			{props.tagList?.map((tagItem: string, index: number) => {
 				return (
 					<TagItem key={index}>
 						<Text>{tagItem}</Text>
@@ -64,7 +93,7 @@ export default function Tag(props: ITagProps) {
 				tabIndex={2}
 				onChange={onChangeInput}
 				value={props.tagItem}
-				onKeyPress={onKeyPress}
+				onKeyDown={onKeyDown}
 			/>
 		</TagBox>
 	);

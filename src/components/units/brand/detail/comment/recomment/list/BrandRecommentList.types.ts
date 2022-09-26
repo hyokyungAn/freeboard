@@ -13,9 +13,7 @@ export interface IData {
 }
 
 export interface IBrandRecommentListProps {
-	el: {
-		_id: string;
-	};
+	el: IFetchUseditemsQuestions;
 }
 
 export interface IBrandRecommentListUIProps {
@@ -26,4 +24,15 @@ export interface IBrandRecommentListUIProps {
 		variables?: Partial<{ useditemQuestionId: string }> | undefined
 	): Promise<ApolloQueryResult<Array<IData>>>;
 	onClickDelete: (event: MouseEvent<HTMLDivElement>) => void;
+}
+
+export interface IFetchUseditemsQuestions {
+	_id: string;
+	contents: string;
+	createdAt: Date;
+	user: {
+		email: string;
+		_id: string;
+		name: string;
+	};
 }

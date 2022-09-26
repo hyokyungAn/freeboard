@@ -1,7 +1,28 @@
+import { ApolloQueryResult } from "@apollo/client";
+
+export interface IBasket {
+	contents?: string;
+	images?: string[];
+	name?: string;
+	pickedCount?: number;
+	price?: number;
+	remarks?: string;
+	_id?: string;
+}
+
+export interface IFetchUserLoggedIn {
+	name: string;
+	userPoint: {
+		amount: number;
+	};
+}
+
 export interface ILayoutHeaderUIProps {
-	data: any;
-	refetch: any;
-	basket: any;
+	data: {
+		fetchUserLoggedIn: IFetchUserLoggedIn;
+	};
+	refetch: () => Promise<ApolloQueryResult<IFetchUserLoggedIn>>;
+	basket: IBasket[];
 	isModalVisible: boolean;
 	handleCancel: () => void;
 	pointCharge: () => void;

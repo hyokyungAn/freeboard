@@ -11,7 +11,7 @@ export default function LayoutHeaderUI(props: ILayoutHeaderUIProps) {
 					src="/images/layout/dingco-logo1.png"
 					onClick={props.onClickLogo}
 				/>
-				<div>
+				<S.ButtonWrapper>
 					{props.data?.fetchUserLoggedIn ? (
 						<S.InnerButton>
 							{props.data?.fetchUserLoggedIn.name}님 포인트 {""}
@@ -39,7 +39,7 @@ export default function LayoutHeaderUI(props: ILayoutHeaderUIProps) {
 					</S.InnerButton>
 					<S.InnerButton>장바구니</S.InnerButton>
 					<Badge count={props.basket.length}></Badge>
-				</div>
+				</S.ButtonWrapper>
 			</S.InnerWrapper>
 			{props.isModalVisible && (
 				<BrandPoint handleCancel={props.handleCancel} refetch={props.refetch} />

@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 
 interface IMediumButtonProps {
-	onClick: (data: any) => void;
+	onClick: () => void;
 	title: string;
 	isActive?: boolean;
 }

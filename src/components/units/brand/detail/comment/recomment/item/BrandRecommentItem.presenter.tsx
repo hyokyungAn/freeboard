@@ -21,19 +21,19 @@ export default function BrandRecommentItemUI(
 									<S.EditIcon
 										src="/images/edit.png"
 										onClick={props.onClickUpdate}
-										id={props.el._id}
+										id={props.el?._id}
 									/>
 									<S.DeleteIcon
 										src="/images/delete.png"
 										onClick={props.onClickDelete}
-										id={props.el._id}
+										id={props.el?._id}
 									/>
 								</>
 							)}
 						</S.IconWrapper>
 					</S.TitleIconWrapper>
-					<S.Date>{getDate(props.el.createdAt)}</S.Date>
-					<S.Contents>{props.el.contents}</S.Contents>
+					<S.Date>{getDate(props.el?.createdAt)}</S.Date>
+					<S.Contents>{props.el?.contents}</S.Contents>
 				</S.RecommentWrapper>
 			)}
 
@@ -43,9 +43,8 @@ export default function BrandRecommentItemUI(
 					isAnswerEdit={props.isAnswerEdit}
 					setIsAnswerEdit={props.setIsAnswerEdit}
 					answerEditId={props.answerEditId}
-					firstId={props.el._id}
+					firstId={props.el?._id}
 					el={props.el}
-					recommentData={props.recommentData}
 				/>
 			)}
 		</S.Wrapper>

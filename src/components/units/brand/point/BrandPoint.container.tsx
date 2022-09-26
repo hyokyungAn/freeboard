@@ -21,7 +21,7 @@ export default function BrandPoint(props: IBrandPointProps) {
 		setSelected(Number(value));
 	};
 
-	const requestPay = (data: any) => {
+	const requestPay = () => {
 		const IMP = window.IMP;
 		IMP.init("imp49910675");
 

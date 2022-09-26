@@ -14,7 +14,11 @@ import {
 	FETCH_USER_LOGGED_IN,
 	TOGGLE_USED_ITEM_PICK,
 } from "./BrandDetail.queries";
-import { IBrandDetailProps, IFetchUseditemsIPicked } from "./BrandDetail.types";
+import {
+	IBasket,
+	IBrandDetailProps,
+	IFetchUseditemsIPicked,
+} from "./BrandDetail.types";
 
 declare const window: typeof globalThis & {
 	kakao: any;
@@ -109,7 +113,7 @@ export default function BrandDetail(props: IBrandDetailProps) {
 
 		// 2. 이미 담겼는지 확인
 		const temp = baskets.filter(
-			(basketEl: any) => basketEl._id === data.fetchUseditem._id
+			(basketEl: IBasket) => basketEl._id === data.fetchUseditem._id
 		);
 		if (temp.length === 1) {
 			Modal.error({ content: "이미 담으신 상품입니다." });

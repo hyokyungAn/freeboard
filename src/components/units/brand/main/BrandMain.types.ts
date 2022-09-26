@@ -13,9 +13,9 @@ export interface IBrandMainUIProps {
 	loadFunc: () => void;
 	loadFuncPick: () => void;
 	onClickMoveToBrandCreate: () => void;
-	refetch(
-		variables?: Partial<OperationVariables> | undefined
-	): Promise<ApolloQueryResult<any>>;
+	refetch: (
+		variables?: Partial<{ search: string; page: number }> | undefined
+	) => Promise<ApolloQueryResult<IFetchUseditems[]>>;
 	keyword: string;
 	onChangeKeyword: (value: string) => void;
 }

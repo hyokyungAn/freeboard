@@ -13,9 +13,9 @@ export interface IData {
 }
 
 export interface IBrandRecommentItemProps {
-	refetch?(
+	refetch?: (
 		variables?: Partial<{ useditemQuestionId: string }> | undefined
-	): Promise<ApolloQueryResult<Array<IData>>>;
+	) => Promise<ApolloQueryResult<Array<IData>>>;
 	onClickDelete?: (event: MouseEvent<HTMLImageElement>) => void;
 	el?: IData;
 	recommentData?: {
@@ -23,12 +23,15 @@ export interface IBrandRecommentItemProps {
 	};
 }
 export interface IBrandRecommentItemUIProps {
-	key: any;
-	el: any;
-	data?: any;
-	refetch?(
-		variables?: Partial<OperationVariables> | undefined
-	): Promise<ApolloQueryResult<any>>;
+	el?: IData;
+	data: {
+		fetchUserLoggedIn: {
+			_id: string;
+		};
+	};
+	refetch?: (
+		variables?: Partial<{ useditemQuestionId: string }> | undefined
+	) => Promise<ApolloQueryResult<IData[]>>;
 	onClickDelete?: (event: MouseEvent<HTMLImageElement>) => void;
 	onClickUpdate: (event: MouseEvent<HTMLImageElement>) => void;
 	isAnswerEdit: boolean;

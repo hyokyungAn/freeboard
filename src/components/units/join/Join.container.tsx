@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import { CREATE_USER } from "./Join.queries";
 import JoinUI from "./Join.presenter";
 import { Modal } from "antd";
+import { IFormData } from "./Join.types";
 
 const schema = yup.object({
 	email: yup
@@ -27,16 +28,16 @@ const schema = yup.object({
 });
 
 export default function Join() {
-	const { register, handleSubmit, formState } = useForm({
+	const { register, handleSubmit, formState } = useForm<IFormData>({
 		resolver: yupResolver(schema),
 		mode: "onChange",
 	});
 	const router = useRouter();
 	const [createUser] = useMutation(CREATE_USER);
 
-	const onClickJoin = async (data: any) => {
+	const onClickJoin = async (data: IFormData) => {
 		try {
-			const result = await createUser({
+			await createUser({
 				variables: {
 					createUserInput: {
 						email: data.email,
