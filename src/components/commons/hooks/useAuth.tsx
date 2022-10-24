@@ -21,7 +21,7 @@ export function useAuth() {
 		if (!loading) {
 			if (!data?.fetchUserLoggedIn) {
 				Modal.error({ content: "로그인 후 이용 가능합니다!" });
-				router.push("/");
+				router.push("/login");
 			}
 		}
 	}, [loading]);
