@@ -4,15 +4,16 @@ import { ILayoutProps } from "./LayoutJoinLoginNavigation.types";
 import { v4 as uuidv4 } from "uuid";
 
 const NAVIGATION_MENUS1 = [
-	{ name: "BRAND", page: "/brand/main" },
-	{ name: "CATEGORY", page: "" },
-	{ name: "LIFE", page: "" },
-	{ name: "BEAUTY", page: "" },
+	{ name: "생화", page: "/brand/main" },
+	{ name: "프리저브드", page: "" },
+	{ name: "화분", page: "" },
+	{ name: "화병/소품", page: "" },
+	{ name: "원데이클래스", page: "" },
 ];
 
 const NAVIGATION_MENUS2 = [
-	{ name: "#STYLE", page: "" },
-	{ name: "EVENT", page: "" },
+	{ name: "후기", page: "" },
+	{ name: "할인/이벤트", page: "" },
 ];
 
 export default function LayoutJoinLoginNavigationUI(props: ILayoutProps) {

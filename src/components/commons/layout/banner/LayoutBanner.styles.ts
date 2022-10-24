@@ -14,21 +14,21 @@ export const SliderImage = styled.img`
 	width: 100%;
 	object-fit: cover;
 	max-width: 1900px;
-	height: 750px;
+	height: 700px;
 	margin: auto;
 `;
 
 export const StyledSlider = styled(Slider)`
 	.slick-dots {
 		bottom: 40px;
-		color: white;
+		/* color: #000; */
 	}
 
 	.slick-dots li button:before {
-		color: white;
+		/* color: #000; */
 	}
 
 	.slick-dots li.slick-active button:before {
-		color: white;
+		/* color: #000; */
 	}
 `;

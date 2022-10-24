@@ -17,13 +17,16 @@ export default function LayoutBannerUI() {
 		<S.Wrap>
 			<S.StyledSlider {...settings}>
 				<S.ImageWrapper>
-					<S.SliderImage src="/images/layout/caroulsel.jpeg" />
+					<S.SliderImage src="/images/layout/caroulsel1.jpg" />
 				</S.ImageWrapper>
 				<S.ImageWrapper>
-					<S.SliderImage src="/images/layout/caroulsel2.jpeg" />
+					<S.SliderImage src="/images/layout/caroulsel2.jpg" />
 				</S.ImageWrapper>
 				<S.ImageWrapper>
-					<S.SliderImage src="/images/layout/caroulsel3.jpeg" />
+					<S.SliderImage src="/images/layout/caroulsel3.jpg" />
+				</S.ImageWrapper>
+				<S.ImageWrapper>
+					<S.SliderImage src="/images/layout/caroulsel4.jpg" />
 				</S.ImageWrapper>
 			</S.StyledSlider>
 		</S.Wrap>

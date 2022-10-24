@@ -24,13 +24,7 @@ export default function Layout(props: ILayoutProps) {
 
 	const HIDDEN_NAVIGATION = ["/login", "/join"];
 
-	const HIDDEN_HEADER = [
-		"/login",
-		"/join",
-		//...
-		//...
-		//...
-	];
+	const HIDDEN_HEADER = ["/login", "/join"];
 
 	const HIDDEN_JOINLOGINNAVIGATION = [
 		"/",
@@ -38,9 +32,7 @@ export default function Layout(props: ILayoutProps) {
 		"/brand/create",
 		"/brand/" + router.query.useditemId,
 		"/brand/" + router.query.useditemId + "/edit",
-		//...
-		//...
-		//...
+		"/boards/write",
 	];
 
 	const HIDDEN_BANNER = [
@@ -50,6 +42,7 @@ export default function Layout(props: ILayoutProps) {
 		"/brand/create",
 		"/brand/" + router.query.useditemId,
 		"/brand/" + router.query.useditemId + "/edit",
+		"/boards/write",
 	];
 
 	const isHiddenNavigation = HIDDEN_NAVIGATION.includes(router.asPath);

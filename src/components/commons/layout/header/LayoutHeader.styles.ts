@@ -18,8 +18,27 @@ export const InnerWrapper = styled.div`
 	align-items: center;
 `;
 
+export const Logo = styled.div`
+	width: 21%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+`;
+
 export const InnerLogo = styled.img`
 	cursor: pointer;
+	width: 180px;
+`;
+
+export const Text = styled.div`
+	display: flex;
+	font-weight: bold;
+`;
+
+export const InnerText = styled.div`
+	padding-top: 10px;
+	font-weight: bold;
 `;
 
 export const ButtonWrapper = styled.div``;

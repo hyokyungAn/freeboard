@@ -16,10 +16,25 @@ export const InnerWrapper = styled.div`
 	align-items: flex-start;
 `;
 
+export const Logo = styled.div`
+	width: 21%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+`;
+
 export const InnerLogo = styled.img`
 	cursor: pointer;
+	width: 180px;
+	padding-left: 10px;
 	margin-bottom: 20px;
 	background: #f1f1f1;
+`;
+
+export const InnerText = styled.div`
+	padding-bottom: 10px;
+	font-weight: bold;
 `;
 
 export const CompanyText = styled.p`

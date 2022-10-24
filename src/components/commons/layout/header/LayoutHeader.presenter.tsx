@@ -7,10 +7,14 @@ export default function LayoutHeaderUI(props: ILayoutHeaderUIProps) {
 	return (
 		<S.Wrapper>
 			<S.InnerWrapper>
-				<S.InnerLogo
-					src="/images/layout/dingco-logo1.png"
-					onClick={props.onClickLogo}
-				/>
+				<S.Logo>
+					<S.InnerLogo
+						src="/images/layout/flowers-logo1.png"
+						onClick={props.onClickLogo}
+					/>
+					<S.InnerText>|</S.InnerText>
+					<S.InnerText> YOU ARE A FLOWER</S.InnerText>
+				</S.Logo>
 				<S.ButtonWrapper>
 					{props.data?.fetchUserLoggedIn ? (
 						<S.InnerButton>
