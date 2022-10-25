@@ -5,7 +5,7 @@ import { v4 as uuidv4 } from "uuid";
 
 const NAVIGATION_MENUS1 = [{ name: "플라워마켓", page: "/brand/main" }];
 
-const NAVIGATION_MENUS2 = [{ name: "자유게시판", page: "boards/write" }];
+const NAVIGATION_MENUS2 = [{ name: "자유게시판", page: "/boards" }];
 
 export default function LayoutNavigationUI(props: ILayoutNavigationUIProps) {
 	return (
