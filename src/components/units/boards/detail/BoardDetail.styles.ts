@@ -11,6 +11,19 @@ export const CreatedAt = styled.div``;
 export const ContentsWrapper = styled.div``;
 export const Title = styled.div``;
 export const Contents = styled.div``;
+export const ImageWrapper = styled.div``;
+export const Image = styled.img``;
 
-export const ButtonWrapper = styled.div``;
-export const Button = styled.button``;
+export const ButtonWrapper = styled.div`
+	text-align: center;
+`;
+
+export const Button = styled.button`
+	width: 100px;
+	height: 30px;
+	background-color: white;
+	border: 1px solid;
+	border-radius: 15px;
+	cursor: pointer;
+	font-weight: 500;
+`;

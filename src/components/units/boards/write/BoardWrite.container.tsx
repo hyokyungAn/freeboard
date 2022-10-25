@@ -1,9 +1,14 @@
 import { useMutation } from "@apollo/client";
+import { useRouter } from "next/router";
 import { useState } from "react";
 import BoardWriteUI from "./BoardWrite.presenter";
 import { CREATE_BOARD } from "./BoardWrite.queries";
 
 export default function BoardWrite() {
+	const router = useRouter();
+	const [isActive, setIsActive] = useState(false);
+	const [createBoard] = useMutation(CREATE_BOARD);
+
 	const [writer, setWriter] = useState("");
 	const [password, setPassword] = useState("");
 	const [title, setTitle] = useState("");
@@ -14,12 +19,16 @@ export default function BoardWrite() {
 	const [titleError, setTitleError] = useState("");
 	const [contentsError, setContentsError] = useState("");
 
-	const [createBoard] = useMutation(CREATE_BOARD);
-
 	const onChangeWriter = (event) => {
 		setWriter(event.target.value);
 		if (event.target.value !== "") {
 			setWriterError("");
+		}
+
+		if (writer && password && title && contents) {
+			setIsActive(true);
+		} else {
+			setIsActive(false);
 		}
 	};
 
@@ -28,6 +37,12 @@ export default function BoardWrite() {
 		if (event.target.value !== "") {
 			setPasswordError("");
 		}
+
+		if (writer && password && title && contents) {
+			setIsActive(true);
+		} else {
+			setIsActive(false);
+		}
 	};
 
 	const onChangeTitle = (event) => {
@@ -35,12 +50,24 @@ export default function BoardWrite() {
 		if (event.target.value !== "") {
 			setTitleError("");
 		}
+
+		if (writer && password && title && contents) {
+			setIsActive(true);
+		} else {
+			setIsActive(false);
+		}
 	};
 
 	const onChangeContents = (event) => {
 		setContetnts(event.target.value);
 		if (event.target.value !== "") {
 			setContentsError("");
+		}
+
+		if (writer && password && title && contents) {
+			setIsActive(true);
+		} else {
+			setIsActive(false);
 		}
 	};
 
@@ -60,7 +87,7 @@ export default function BoardWrite() {
 
 		if (writer && password && title && contents) {
 			try {
-				await createBoard({
+				const result = await createBoard({
 					variables: {
 						createBoardInput: {
 							writer,
@@ -71,6 +98,7 @@ export default function BoardWrite() {
 					},
 				});
 				alert("게시물이 등록되었습니다.");
+				router.push(`/boards/${result.data.createBoard._id}`);
 			} catch (error) {
 				console.log((error as Error).message);
 			}
@@ -88,6 +116,7 @@ export default function BoardWrite() {
 			onChangeTitle={onChangeTitle}
 			onChangeContents={onChangeContents}
 			onClickSubmit={onClickSubmit}
+			isActive={isActive}
 		/>
 	);
 }

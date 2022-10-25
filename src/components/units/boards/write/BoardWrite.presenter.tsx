@@ -63,7 +63,9 @@ export default function BoardWriteUI(props) {
 				</S.InputWrapper>
 			</S.WriterPasswordWrapper>
 			<S.ButtonWrapper>
-				<S.Button onClick={props.onClickSubmit}>등록하기</S.Button>
+				<S.Button onClick={props.onClickSubmit} isActive={props.isActive}>
+					등록하기
+				</S.Button>
 			</S.ButtonWrapper>
 		</S.Wrapper>
 		// </S.Body>
