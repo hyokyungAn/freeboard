@@ -1,14 +1,7 @@
 import * as S from "./BoardList.styles";
+import { getDate } from "../../../../commons/libraries/utils";
 
 export default function BoardListUI(props) {
-	const getDate = (value) => {
-		const date = new Date(value);
-		const yyyy = date.getFullYear();
-		const mm = String(date.getMonth() + 1).padStart(2, "0");
-		const dd = String(date.getDate()).padStart(2, "0");
-		return `${yyyy}-${mm}-${dd}`;
-	};
-
 	return (
 		<S.Wrapper>
 			<S.TopLine />
@@ -21,7 +14,7 @@ export default function BoardListUI(props) {
 			{props.data?.fetchBoards.map((el) => (
 				<S.RowList key={el._id}>
 					<S.ListMenu>{String(el._id).slice(-4).toUpperCase()}</S.ListMenu>
-					<S.ListTitle onClick={props.onClickMoveToBoardDetail}>
+					<S.ListTitle id={el._id} onClick={props.onClickMoveToBoardDetail}>
 						{el.title}
 					</S.ListTitle>
 					<S.ListMenu>{el.writer}</S.ListMenu>

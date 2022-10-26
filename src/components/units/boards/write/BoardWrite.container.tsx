@@ -2,12 +2,14 @@ import { useMutation } from "@apollo/client";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import BoardWriteUI from "./BoardWrite.presenter";
-import { CREATE_BOARD } from "./BoardWrite.queries";
+import { CREATE_BOARD, UPDATE_BOARD } from "./BoardWrite.queries";
 
-export default function BoardWrite() {
+export default function BoardWrite(props) {
 	const router = useRouter();
 	const [isActive, setIsActive] = useState(false);
+
 	const [createBoard] = useMutation(CREATE_BOARD);
+	// const [updateBoard] = useMutation(UPDATE_BOARD);
 
 	const [writer, setWriter] = useState("");
 	const [password, setPassword] = useState("");
@@ -25,7 +27,7 @@ export default function BoardWrite() {
 			setWriterError("");
 		}
 
-		if (writer && password && title && contents) {
+		if (event.target.value && password && title && contents) {
 			setIsActive(true);
 		} else {
 			setIsActive(false);
@@ -38,7 +40,7 @@ export default function BoardWrite() {
 			setPasswordError("");
 		}
 
-		if (writer && password && title && contents) {
+		if (writer && event.target.value && title && contents) {
 			setIsActive(true);
 		} else {
 			setIsActive(false);
@@ -51,7 +53,7 @@ export default function BoardWrite() {
 			setTitleError("");
 		}
 
-		if (writer && password && title && contents) {
+		if (writer && password && event.target.value && contents) {
 			setIsActive(true);
 		} else {
 			setIsActive(false);
@@ -64,7 +66,7 @@ export default function BoardWrite() {
 			setContentsError("");
 		}
 
-		if (writer && password && title && contents) {
+		if (writer && password && title && event.target.value) {
 			setIsActive(true);
 		} else {
 			setIsActive(false);
@@ -105,6 +107,25 @@ export default function BoardWrite() {
 		}
 	};
 
+	const onClickUpdate = async () => {
+		try {
+			await updateBoard({
+				variables: {
+					updateBoardInput: {
+						title,
+						contents,
+					},
+					password,
+					boardId: router.query.boardId,
+				},
+			});
+			alert("수정이 완료되었습니다.");
+			router.push(`boards/${router.query.boardId}`);
+		} catch (error) {
+			alert(error.message);
+		}
+	};
+
 	return (
 		<BoardWriteUI
 			writerError={writerError}
@@ -116,7 +137,9 @@ export default function BoardWrite() {
 			onChangeTitle={onChangeTitle}
 			onChangeContents={onChangeContents}
 			onClickSubmit={onClickSubmit}
+			onClickUpdate={onClickUpdate}
 			isActive={isActive}
+			idEdit={props.isEdit}
 		/>
 	);
 }

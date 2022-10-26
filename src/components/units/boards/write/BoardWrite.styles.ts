@@ -89,11 +89,11 @@ export const ButtonWrapper = styled.div`
 export const Button = styled.button`
 	width: 100px;
 	height: 30px;
-	background-color: white;
 	border: 1px solid;
 	border-radius: 15px;
 	cursor: pointer;
-	font-weight: 500;
+	background-color: ${(props) => (props.isActive ? "blueviolet" : "white")};
+	color: ${(props) => (props.isActive ? "white" : "black")};
 `;
 
 export const WriterPasswordWrapper = styled.div`
